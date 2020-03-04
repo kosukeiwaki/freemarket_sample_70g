@@ -1,4 +1,5 @@
 $maincolor:#3CCACE;
+$mainback:#f8f8f8;
 
 @mixin mainstyle($color, $fontsize, $backgrouond-color){
   color:$color;
@@ -7,4 +8,13 @@ $maincolor:#3CCACE;
 }
 
 
+.main{
+  background-color: $mainback;
+  padding: 50px 100px;
+}
 
+.itemBox{
+  background-color: #fff;
+  padding: 20px 30px;
+  margin: 0 auto;
+}
