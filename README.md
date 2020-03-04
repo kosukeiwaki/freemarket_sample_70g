@@ -55,22 +55,20 @@ Things you may want to cover:
 |price|integer|null: false|
 |size|string|null: false|
 |brand|string|
-|status|string|
+|status|string|null: false|
 |fee|integer|null: false|
 |resion|string|null: false|
 |shipping_date|string|null: false|
-
-
-|group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+|item_category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :likes
 - has_many :images
 - has_many :comments
-- has_many :items_categorys
-- has_many :categorys, through:  :items_categorys 
+- has_many :items_categories
+- has_many :categories, through:  :items_categories 
 
 
 
@@ -96,12 +94,12 @@ Things you may want to cover:
 |item_category_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :items_categorys
-- has_many :items, through:  :items_categorys
+- has_many :items_categories
+- has_many :items, through:  :items_categories
 
 
 
-## items_categorysテーブル
+## items_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -110,8 +108,8 @@ Things you may want to cover:
 
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :item
+- belongs_to :category
 
 
 
