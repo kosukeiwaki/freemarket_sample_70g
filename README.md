@@ -63,7 +63,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 |price|integer|null: false|
 |size|string|null: false|
 |brand|string|
