@@ -33,14 +33,13 @@ Things you may want to cover:
 |firstname|string|null: false|
 |lastname|string|null: false|
 |birthday|string|null: false|
-|adress_id|integer|null: false, foreign_key: true|
 
 
 ### Association
 - has_many :comments
 - has_many :items
 - has_many :likes
-- belongs_to :adress
+- has_many :adresses
 
 
 ## adressesテーブル
