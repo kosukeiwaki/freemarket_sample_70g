@@ -30,7 +30,7 @@ Things you may want to cover:
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
-|firstname|integer|null: false|
+|firstname|string|null: false|
 |lastname|string|null: false|
 |birthday|string|null: false|
 |zip|string|null: false|
@@ -44,7 +44,7 @@ Things you may want to cover:
 ### Association
 - has_many :comments
 - has_many :items
-- belongs_to :like
+- has_many :likes
 
 
 
@@ -66,7 +66,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :like
+- has_many :likes
 - has_many :images
 - has_many :comments
 - has_many :items_categorys
@@ -97,7 +97,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items_categorys
-- belongs_to :items, through:  :items_categorys
+- has_many :items, through:  :items_categorys
 
 
 
@@ -124,8 +124,8 @@ Things you may want to cover:
 
 
 ### Association
-- has_many :users
-- has_many :items
+- belongs_to :user
+- belongs_to :item
 
 
 
