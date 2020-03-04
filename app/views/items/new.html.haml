@@ -1,0 +1,101 @@
+= render "shared/header"
+.main
+  .itemBox
+    .imageForm
+      .imageForm__top
+        %p 出品画像 
+        %span.red 必須
+      .imageForm__text
+        %p 最大10枚までアップロードできます。
+      .imageForm__form
+        %input(type="image")/
+    .name
+      .name__top
+        %p 商品名
+        %span.red 必須
+      .name__form
+        %input(type="text")/
+    .explain
+      .explain__top
+        %p 商品の説明
+        %span.red 必須
+      .explain__form
+        %input(type="text")/
+    .detail
+      %p　商品の詳細
+      .category
+        .category__name
+          %p カテゴリー
+          %span.red 必須
+        .category__form
+          %select
+            %option セレクトA
+            %option セレクトB
+            %option セレクトC
+      .bland
+        .bland__name
+          %p ブランド
+          %span.gray 任意
+        .bland__form
+          %input#(type="text" name="")/
+      .status
+        .status__name
+          %p 商品の状態
+          %span.red 必須
+        .status__form
+          %select
+            %option セレクトA
+            %option セレクトB
+            %option セレクトC
+    .shipping
+      %p　送料について
+      .fee
+        .fee__name
+          %p　配送料の負担
+          %span 必須
+        .fee__form
+           %select
+            %option セレクトA
+            %option セレクトB
+            %option セレクトC
+      .region
+        .region__name
+          %p　発送元の地域
+          %span 必須
+        .region__form
+           %select
+            %option セレクトA
+            %option セレクトB
+            %option セレクトC
+      .date
+        .date__name
+          %p　発送までの日数
+          %span 必須
+        .date__form
+           %select
+            %option セレクトA
+            %option セレクトB
+            %option セレクトC
+    .price
+      %p 価格（¥300〜9,999,999）
+      .price__total
+        %p 販売価格
+        %span 必須
+        %input(type="text")/
+      .price__tax
+        %p 販売手数料(10%)
+        %p =手数料の価格＝
+      .price__profit
+        %p 販売利益
+        %p =販売価格ー手数料＝
+      .make_sure
+        %button{:type => "submit"} 出品する
+        %btn 戻る
+      .warning
+        %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render "shared/footer"
+
+      
+        
+
+      

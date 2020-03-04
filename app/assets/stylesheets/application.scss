@@ -3,3 +3,9 @@
 @import "font-awesome";
 @import "modules/footer";
 @import "modules/header";
+
+@mixin mainstyle($color, $fontsize, $backgrouond-color){
+  color:$color;
+  font-size:$fontsize;
+  background-color:$backgruond-color
+}

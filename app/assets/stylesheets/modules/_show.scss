@@ -1,0 +1,10 @@
+$maincolor:#3CCACE;
+
+@mixin mainstyle($color, $fontsize, $backgrouond-color){
+  color:$color;
+  font-size:$fontsize;
+  background-color:$backgruond-color
+}
+
+
+
