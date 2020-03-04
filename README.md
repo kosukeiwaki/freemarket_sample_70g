@@ -52,6 +52,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|name|integer|null: false|
 |price|integer|null: false|
 |size|string|null: false|
 |brand|string|
@@ -87,10 +88,11 @@ Things you may want to cover:
 
 
 
-## categorysテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|name|integer|null: false|
 |item_category_id|integer|null: false, foreign_key: true|
 
 ### Association
