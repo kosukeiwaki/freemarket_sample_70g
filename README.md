@@ -33,18 +33,30 @@ Things you may want to cover:
 |firstname|string|null: false|
 |lastname|string|null: false|
 |birthday|string|null: false|
-|zip|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|block|string|
-|building|string|
-|phone_number|integer|
+|adress_id|integer|null: false, foreign_key: true|
 
 
 ### Association
 - has_many :comments
 - has_many :items
 - has_many :likes
+- belongs_to :adress
+
+
+## adressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|zip|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|
+|building|string|
+|phone_number|integer|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 
