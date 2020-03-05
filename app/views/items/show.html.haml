@@ -1,0 +1,69 @@
+.main 
+  .showMain
+    .topContent
+      .itemBox
+        .itemBox__name
+          %p item 1
+        .itemBox__body
+          %ul.main-image 
+            = image_tag
+              %ul.sub-image
+                %li
+                %li
+                %li
+        .itemBox__price
+          %span ¥20000
+          .itemBox__price--detail
+            %span （税込）送料込み
+        .itemDetail
+          %p item 1
+        .table
+        %table{:border => "1"}
+          %tr
+            %th.left-top 出品者 
+            %th.right-top hoge
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+          %tr
+            %td.left-lists 項目
+            %td.right-lists 説明
+        .optionalArea
+          %ul
+            %li.optionalBtnLikebtn
+              %p お気に入り 0
+          %ul.optional
+            %li.optionalBtn
+              %p 不適切な商品の通報
+      .commentBox
+        %ul.commentContents
+          = form_for "#" do |f|
+            = f.text_area :text, class: 'comment'
+            %p.noticeMsg 
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.submit class: 'commentBtn', value: 'コメントする'
+      %ul.links 
+        = link_to "前の商品", "#", class: "itemLinks"
+        = link_to "後ろの商品", "#", class: "itemLinks"
+      .relatedItems
+        = link_to "メンズをもっと見る", "#", class: "productLists"
