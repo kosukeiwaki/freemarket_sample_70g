@@ -1,0 +1,342 @@
+// 色の変数
+
+$maincolor:#3CCACE;
+$mainback:#f8f8f8;
+
+@mixin mainstyle($color, $fontsize, $backgrouond-color){
+  color:$color;
+  font-size:$fontsize;
+  background-color:$backgruond-color
+}
+
+@mixin mainBox($padding:20px 30px,$margin:0 auto){
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin mainTop($padding:10px, $display: flex,$font-weight: bold,$font-size: 15px){
+  padding: $padding;
+  display: $display;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+@mixin mainText($padding:0 10px){
+  padding: $padding;
+}
+
+// セレクトボックスの初期化
+.select-test {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  // background: transparent url(https://haniwaman.com/wp-content/uploads/2018/12/form-css-arrow.png) no-repeat center right 8px/16px 16px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 100%;
+}
+
+// インプットタグの初期化
+.text-test {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 100%;
+  border-radius: 5px;
+}
+
+// ボタンの初期化
+.submit-test {
+  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.32);
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 0 1em;
+  padding: 0.6em 2em;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.submit-test:hover,
+.submit-test:focus {
+  outline: none;
+}
+
+.submit-test::-moz-foucus-inner {
+  border: none;
+  padding: 0;
+}
+
+.text-test:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+
+.select-test::-ms-expand {
+  display: none;
+}
+
+.select-test:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+// ここからテキストエリアの初期化
+.textarea-text {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  height: 100px;
+  padding: 0.4em 0.8em;
+  width: 100%;
+}
+
+.textarea-text:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+
+
+
+// 共通
+.red{
+  color: white;
+  font-weight: 600;
+  background-color: red;
+  padding: 0 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.gray{
+  color: white;
+  font-weight: 600;
+  background-color: gray;
+  padding: 0 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+
+// ここからメイン
+
+
+
+.main{
+  background-color: $mainback;
+  padding: 50px 100px;
+}
+
+.itemBox{
+  background-color: #fff;
+  padding: 20px 30px;
+  margin: 0 auto;
+  width:50vw;
+
+  .imageForm{
+    padding: 40px;
+    margin: 0 auto;
+    &__top{
+      padding: 10px;
+      display: flex;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    &__text{
+      padding: 0 10px;
+    }
+  }
+}
+
+.name{
+  @include mainBox();
+  &__top{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.explain{
+  @include mainBox();
+  &__top{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.detail{
+  .category{
+    @include mainBox();
+    .grayP{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+    }
+
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+}
+
+.bland{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.status{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.shipping{
+  .fee{
+    @include mainBox();
+    .grayP{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+    }
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+  .region{
+    @include mainBox();
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+  .date{
+    @include mainBox();
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+}
+
+.prices{
+  .price{
+    @include mainBox();
+    .grayLittle{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+      font-size: 12px;
+    }
+    &__box{
+      display: flex;
+      padding: 20px 0;
+      &__total{
+        @include mainTop();
+      }
+      &__form{
+        padding: 0 10px;
+      } 
+    }
+
+
+    &__tax{
+      border-bottom: 1px solid rgb(51, 51, 51);
+      display: flex;
+      padding: 20px 10px;
+      justify-content: space-between;
+    }
+
+    &__profit{
+      display: flex;
+      padding: 20px 10px;
+      justify-content: space-between;
+    }
+  }
+}
+
+.sure{
+
+  .redButtom{
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 60%;
+    color: white;
+    background-color: #ea352d;
+    margin-bottom: 20px;
+  }
+  .grayButtom{
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #ccc;
+    color: black;
+    margin-bottom: 10px;
+  }
+
+}
+
+.warning{
+  padding: 20px;
+  font-size: 12px;
+  font-weight: 200;
+
+}
