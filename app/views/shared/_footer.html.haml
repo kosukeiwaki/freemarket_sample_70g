@@ -3,44 +3,38 @@
     .footerTop__box
       %h2 だれでもかんたん、人生を変えるフリマアプリ
       %p 今すぐ無料ダウンロード！
-      %img(src="" alt="")/
-      %img(src="" alt="")/
+      = image_tag "material/logo/logo-white.png", size: "610x190", alt: "test"
+      = image_tag "material/logo/logo-white.png", size: "610x190", alt: "test"
   .footerBottom
-    .footerBottom
+    .footerBottom__box
       %ul.contents
         %li.content
           %h3 FURIMAについて
           %ul
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to '会社概要（運営会社)'
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'プライバシーポリシー'
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'FURIMA利用規約'
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'ポイントに関する特約'
         %li.content
           %h3 FURIMAについて
           %ul
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'カテゴリー一覧'
             %li
-              %a{:herf => "#"} 会社概要
-            %li
-              %a{:herf => "#"} 会社概要
-            %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'ブランド一覧'
         %li.content
           %h3 FURIMAについて
           %ul
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'FURIMAガイド'
             %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'FURIMAロゴ利用ガイドライン'
             %li
-              %a{:herf => "#"} 会社概要
-            %li
-              %a{:herf => "#"} 会社概要
+              = link_to 'お知らせ'
       .footerlogo
-        %img_tag(src="" alt="")/
+        = image_tag "material/logo/logo-white.png", size: "180x50", alt: "test",class:'modalshow'
         %p © FURIMA
