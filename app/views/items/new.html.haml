@@ -24,7 +24,7 @@
         %input.text-test(type="text")/
     .detail
       .category
-        %p.detailExplain 商品の詳細
+        %p.grayP 商品の詳細
         .category__name
           %p カテゴリー
           %span.red 必須
@@ -49,11 +49,11 @@
             %option セレクトB
             %option セレクトC
     .shipping
-      %p 送料について
       .fee
+        %p.grayP 送料について
         .fee__name
           %p 配送料の負担
-          %span 必須
+          %span.red 必須
         .fee__form
           %select.select-test
             %option セレクトA
@@ -62,7 +62,7 @@
       .region
         .region__name
           %p 発送元の地域
-          %span 必須
+          %span.red 必須
         .region__form
           %select.select-test
             %option セレクトA
@@ -71,29 +71,32 @@
       .date
         .date__name
           %p 発送までの日数
-          %span 必須
+          %span.red 必須
         .date__form
           %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
-    .price
-      %p 価格（¥300〜9,999,999）
-      .price__total
-        %p 販売価格
-        %span 必須
-        %input.text-test(type="text")/
-      .price__tax
-        %p 販売手数料(10%)
-        %p =手数料の価格＝
-      .price__profit
-        %p 販売利益
-        %p =販売価格ー手数料＝
-      .make_sure
-        %button{:type => "submit"} 出品する
-        %btn 戻る
-      .warning
-        %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+    .prices
+      .price
+        %p.grayLittle 価格（¥300〜9,999,999）
+        .price__box
+          .price__box__total
+            %p 販売価格
+            %span.red 必須
+          .price__box__form
+            %input.text-test(type="text")/
+        .price__tax
+          %p 販売手数料(10%)
+          %p =手数料の価格＝
+        .price__profit
+          %p 販売利益
+          %p =販売価格ー手数料＝
+    .sure
+      %button.submit-test.redButtom{:type => "submit"} 出品する
+      %button.submit-test.grayButtom{:type => "submit"} 戻る
+    .warning
+      %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "shared/footer"
 
       

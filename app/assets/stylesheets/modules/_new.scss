@@ -9,7 +9,7 @@ $mainback:#f8f8f8;
   background-color:$backgruond-color
 }
 
-@mixin mainBox($padding:40px,$margin:0 auto){
+@mixin mainBox($padding:20px 30px,$margin:0 auto){
   padding: $padding;
   margin: $margin;
 }
@@ -59,6 +59,34 @@ $mainback:#f8f8f8;
   border-radius: 5px;
 }
 
+// ボタンの初期化
+.submit-test {
+  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.32);
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 0 1em;
+  padding: 0.6em 2em;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.submit-test:hover,
+.submit-test:focus {
+  outline: none;
+}
+
+.submit-test::-moz-foucus-inner {
+  border: none;
+  padding: 0;
+}
+
 .text-test:focus {
   border: 1px solid rgba(0, 0, 0, 0.32);
   box-shadow: none;
@@ -85,6 +113,8 @@ $mainback:#f8f8f8;
   background-color: red;
   padding: 0 5px;
   font-size: 12px;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .gray{
@@ -93,6 +123,8 @@ $mainback:#f8f8f8;
   background-color: gray;
   padding: 0 5px;
   font-size: 12px;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 
@@ -126,40 +158,161 @@ $mainback:#f8f8f8;
   }
 }
 
-  .name{
+.name{
+  @include mainBox();
+  &__top{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.explain{
+  @include mainBox();
+  &__top{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.detail{
+  .category{
     @include mainBox();
-    &__top{
+    .grayP{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+    }
+
+    &__name{
       @include mainTop();
     }
     &__form{
       padding: 0 10px;
     }
   }
+}
 
-  .explain{
+.bland{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.status{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.shipping{
+  .fee{
     @include mainBox();
-    &__top{
+    .grayP{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+    }
+    &__name{
       @include mainTop();
     }
     &__form{
       padding: 0 10px;
     }
   }
+  .region{
+    @include mainBox();
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+  .date{
+    @include mainBox();
+    &__name{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+}
 
-  .detail{
-    .category{
-      @include mainBox();
-      .detailExplain{
-        color: gray;
-        font-weight: bold;
-        padding: 10px 10px 20px 10px;
-      }
-
-      &__name{
+.prices{
+  .price{
+    @include mainBox();
+    .grayLittle{
+      color: gray;
+      font-weight: bold;
+      padding: 10px 10px 20px 10px;
+      font-size: 12px;
+    }
+    &__box{
+      display: flex;
+      padding: 20px 0;
+      &__total{
         @include mainTop();
       }
       &__form{
         padding: 0 10px;
-      }
+      } 
+    }
+
+
+    &__tax{
+      border-bottom: 1px solid rgb(51, 51, 51);
+      display: flex;
+      padding: 20px 10px;
+      justify-content: space-between;
+    }
+
+    &__profit{
+      display: flex;
+      padding: 20px 10px;
+      justify-content: space-between;
     }
   }
+}
+
+.sure{
+
+  .redButtom{
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 60%;
+    color: white;
+    background-color: #ea352d;
+    margin-bottom: 20px;
+  }
+  .grayButtom{
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #ccc;
+    color: black;
+    margin-bottom: 10px;
+  }
+
+}
+
+.warning{
+  padding: 20px;
+  font-size: 12px;
+  font-weight: 200;
+
+}
