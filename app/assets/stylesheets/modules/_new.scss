@@ -1,3 +1,5 @@
+// 色の変数
+
 $maincolor:#3CCACE;
 $mainback:#f8f8f8;
 
@@ -6,6 +8,96 @@ $mainback:#f8f8f8;
   font-size:$fontsize;
   background-color:$backgruond-color
 }
+
+@mixin mainBox($padding:40px,$margin:0 auto){
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin mainTop($padding:10px, $display: flex,$font-weight: bold,$font-size: 15px){
+  padding: $padding;
+  display: $display;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+@mixin mainText($padding:0 10px){
+  padding: $padding;
+}
+
+// セレクトボックスの初期化
+.select-test {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  // background: transparent url(https://haniwaman.com/wp-content/uploads/2018/12/form-css-arrow.png) no-repeat center right 8px/16px 16px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 100%;
+}
+
+// インプットタグの初期化
+.text-test {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.text-test:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+
+.select-test::-ms-expand {
+  display: none;
+}
+
+.select-test:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+
+
+// 共通
+.red{
+  color: white;
+  font-weight: 600;
+  background-color: red;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+.gray{
+  color: white;
+  font-weight: 600;
+  background-color: gray;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+
+// ここからメイン
+
 
 
 .main{
@@ -17,4 +109,57 @@ $mainback:#f8f8f8;
   background-color: #fff;
   padding: 20px 30px;
   margin: 0 auto;
+  width:50vw;
+
+  .imageForm{
+    padding: 40px;
+    margin: 0 auto;
+    &__top{
+      padding: 10px;
+      display: flex;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    &__text{
+      padding: 0 10px;
+    }
+  }
 }
+
+  .name{
+    @include mainBox();
+    &__top{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+
+  .explain{
+    @include mainBox();
+    &__top{
+      @include mainTop();
+    }
+    &__form{
+      padding: 0 10px;
+    }
+  }
+
+  .detail{
+    .category{
+      @include mainBox();
+      .detailExplain{
+        color: gray;
+        font-weight: bold;
+        padding: 10px 10px 20px 10px;
+      }
+
+      &__name{
+        @include mainTop();
+      }
+      &__form{
+        padding: 0 10px;
+      }
+    }
+  }

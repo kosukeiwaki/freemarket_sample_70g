@@ -1,5 +1,6 @@
 = render "shared/header"
 .main
+  .logo
   .itemBox
     .imageForm
       .imageForm__top
@@ -8,27 +9,27 @@
       .imageForm__text
         %p 最大10枚までアップロードできます。
       .imageForm__form
-        %input(type="image")/
+        %input.text-test(type="image")/
     .name
       .name__top
         %p 商品名
         %span.red 必須
       .name__form
-        %input(type="text")/
+        %input.text-test(type="text")/
     .explain
       .explain__top
         %p 商品の説明
         %span.red 必須
       .explain__form
-        %input(type="text")/
+        %input.text-test(type="text")/
     .detail
-      %p　商品の詳細
       .category
+        %p.detailExplain 商品の詳細
         .category__name
           %p カテゴリー
           %span.red 必須
         .category__form
-          %select
+          %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
@@ -37,42 +38,42 @@
           %p ブランド
           %span.gray 任意
         .bland__form
-          %input(type="text" name="")/
+          %input.text-test(type="text" name="")/
       .status
         .status__name
           %p 商品の状態
           %span.red 必須
         .status__form
-          %select
+          %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
     .shipping
-      %p　送料について
+      %p 送料について
       .fee
         .fee__name
-          %p　配送料の負担
+          %p 配送料の負担
           %span 必須
         .fee__form
-          %select
+          %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
       .region
         .region__name
-          %p　発送元の地域
+          %p 発送元の地域
           %span 必須
         .region__form
-          %select
+          %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
       .date
         .date__name
-          %p　発送までの日数
+          %p 発送までの日数
           %span 必須
         .date__form
-          %select
+          %select.select-test
             %option セレクトA
             %option セレクトB
             %option セレクトC
@@ -81,7 +82,7 @@
       .price__total
         %p 販売価格
         %span 必須
-        %input(type="text")/
+        %input.text-test(type="text")/
       .price__tax
         %p 販売手数料(10%)
         %p =手数料の価格＝
