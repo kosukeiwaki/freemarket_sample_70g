@@ -4,43 +4,188 @@
       .topPage__box__content
       %h1 人生を変えるフリマアプリ
       .topPage__box__text
-      %p FURIMAはだれでもかんたんに出品・購入できる
-      %br/ フリマアプリです
+      %p FURIMAはだれでもかんたんに出品
+      %p 購入できるフリマアプリです
       .topPage__box__images
-      %img(src="/aseets/images/appstore.png" alt="apple")/
-      %img(src="/aseets/images/googleplay.jpg" alt="google")/
+      = image_tag "appstore.png", size:"180x53",alt:"test"
+      = image_tag "googleplay.jpeg", size:"180x53",alt:"test"
 
   .orderPage
     .orderPage__title
     %h1 FURIMAが選ばれる３つの理由
     .orderPage__images
       .orderPage__image
-      %img(src="/aseets/images/order-01.jpg" alt="1")/
+      =image_tag"item01.png",size:"261x261",alt:"test"
       %span 1
       %h3 3分ですぐに出品
-      %p スマホで入力するだけで簡単
-      %br/に出品できる！
+      %p スマホで入力するだけで簡単に出品できる！
       .orderPage__image
-      %img(src="/aseets/images/order-02.jpg" alt="2")/
+      = image_tag "order-02.jpg", size:"261x261",alt:"test"
       %span 2
       %h3 シンプルで使いやすい
-      %p めんどくさい入力は必要な
-      %br/く、検索も購入もスムーズ！
+      %p めんどくさい入力は必要なく、検索も購入もスムーズ！
       .orderPage__image
-      %img(src="/aseets/images/order-03" alt="3")/
+      = image_tag "order-03.jpg", size:"261x261",alt:"test"
       %span 3
       %h3 手数料業界最安
       %p 最大3%でお得に出品&購入！
+
+  .topDLpage
+    .topDLpage__box
+      .topDLpage__box__title
+      %h2 会員数日本一位
+      .topDLpage__box__text
+      %p FURIMAは、フリマアプリで最も人気
+      %p 出品・購入回数も業界最多です！
+      %p ほしかったあの商品に出会えるかもしれません。
+      .topDLpage__box__btns
+      = image_tag "appstore.png", size:"180x53",alt:"test"
+      = image_tag "googleplay.jpeg", size:"180x53",alt:"test"
 
   .featurePage
     .featurePage__title
     %h1 FURIMAの特徴
     .featurePage__images
-      .featurePage__image
-      %img(src="" alt="1")/
-      %img(src="" alt="1")/
-      %img(src="" alt="1")/
+      .featurePage__images__image
+      = image_tag "feature-01.svg",size:"138x212",alt:"test"
+      .featurePage__images__subTitle
+      %h3 簡単に売り買いできる
+      .featurePage__images__sentence
+      %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .featurePage__images__image
+      = image_tag "feature-02.svg",size:"138x212",alt:"test"
+      .featurePage__images__subTitle
+      %h3 売上金は即日振込みに対応
+      .featurePage__images__sentence
+      %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .featurePage__images__image
+      = image_tag "feature-03.svg",size:"138x212",alt:"test"
+      .featurePage__images__subTitle
+      %h3 様々な支払いに対応
+      .featurePage__images__sentence
+      %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+
+  .pickupItem
+    .pickupItem__text
+    %h2 ピックアップアイテム
+    .pickupItem__box
+      .pickupItem__box__head
+      = link_to"#" do
+        .pickupItem__box__head__title
+        %h3 商品一覧
+      .pickupItem__box__lists
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item01"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product3
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 30000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item02"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product2
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 20000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item03"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product1
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 10000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+            
+
+  .pickupItem
+    .pickupItem__text
+    %h2 ピックアップアイテム
+    .pickupItem__box
+      .pickupItem__box__head
+      = link_to"#" do
+        .pickupItem__box__head__title
+        %h3 商品一覧
+      .pickupItem__box__lists
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item01"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product3
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 30000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item02"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product2
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 20000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+
+        .pickupItem__box__lists__list
+        = link_to"#" do
+          .pickupItem__box__lists__list__image
+          = image_tag "item03"
+          .pickupItem__box__lists__list__body
+            .pickupItem__box__lists__list__body__name
+            %h3 product1
+            .pickupItem__box__lists__list__body__details
+            %ul
+              %li 10000円
+              %li
+                %i.fa.fa-star.likeicon
+            %p (税込)
+
+
+
+.exhibitionBtn
+= link_to"#" do
+  .exhibitionBtn__text
+  %span 出品する
+  .exhibitionBtn_icon
+  =image_tag "icon_camera.png"
+
+
+
+
+
+
+
+
+  
 
 
 
