@@ -1,15 +1,10 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-// @import "modules/footer";
-// @import "modules/header";
-// @import "modules/new";
+@import "modules/footer";
+@import "modules/header";
+@import "modules/new";
 @import "form";
 *{
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'
   }
-@mixin mainstyle($color, $fontsize, $backgrouond-color){
-  color:$color;
-  font-size:$fontsize;
-  background-color:$backgruond-color
-}
