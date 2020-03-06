@@ -10,18 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_084645) do
+ActiveRecord::Schema.define(version: 2020_03_06_061409) do
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "zip", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "block"
+    t.string "building"
+    t.integer "phone_number"
+    t.string "lastname", null: false
+    t.string "firstname", null: false
+    t.string "lastname_kana", null: false
+    t.string "firstname_kana", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "price", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.integer "price"
+    t.string "size"
     t.string "brand"
-    t.string "status", null: false
-    t.integer "fee", null: false
-    t.string "region", null: false
-    t.string "shipping_date", null: false
+    t.string "status"
+    t.integer "fee"
+    t.string "region"
+    t.string "shipping_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,8 +54,11 @@ ActiveRecord::Schema.define(version: 2020_03_04_084645) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lastname_kana", null: false
+    t.string "firstname_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
 end
