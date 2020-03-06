@@ -1,0 +1,64 @@
+
+.footer{
+  .footerTop{
+    background-image: url(material/pict/bg-appBanner-pict.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 100px 40px;
+   &__box{
+     display: block;
+     text-align: center;
+     h2{
+       font-size: 20px;
+       font-weight: bold;
+       padding: 5px;
+       color: white;
+       text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+     }
+     p{
+       font-size: 30px;
+       font-weight: bold;
+       padding: 5px;
+       color: white;
+       text-shadow: 0 0 5px rgba(0,0,0,0.4);
+     }
+   }
+  }
+  .footerBottom{
+    background-color: #272727;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+    &__box{
+      .contents{
+        display: inline-flex;
+        text-align: center;
+        padding: 0 20px;
+        .content{
+          margin: 0 20px;
+          h3{
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+          ul{
+            text-decoration: none;
+            li{
+              a{
+                color:white;
+                text-decoration: none;
+                font-size: 12px;
+                line-height: 3;
+              }
+              a:hover{
+                border-bottom: 1px white solid;
+                transition: all 0.3s ease-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
