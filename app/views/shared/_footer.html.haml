@@ -1,0 +1,40 @@
+.footer
+  .footerTop
+    .footerTop__box
+      %h2 だれでもかんたん、人生を変えるフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      = image_tag "material/logo/logo-white.png", size: "610x190", alt: "test"
+      = image_tag "material/logo/logo-white.png", size: "610x190", alt: "test"
+  .footerBottom
+    .footerBottom__box
+      %ul.contents
+        %li.content
+          %h3 FURIMAについて
+          %ul
+            %li
+              = link_to '会社概要（運営会社)'
+            %li
+              = link_to 'プライバシーポリシー'
+            %li
+              = link_to 'FURIMA利用規約'
+            %li
+              = link_to 'ポイントに関する特約'
+        %li.content
+          %h3 FURIMAについて
+          %ul
+            %li
+              = link_to 'カテゴリー一覧'
+            %li
+              = link_to 'ブランド一覧'
+        %li.content
+          %h3 FURIMAについて
+          %ul
+            %li
+              = link_to 'FURIMAガイド'
+            %li
+              = link_to 'FURIMAロゴ利用ガイドライン'
+            %li
+              = link_to 'お知らせ'
+      .footerlogo
+        = image_tag "material/logo/logo-white.png", size: "180x50", alt: "test",class:'modalshow'
+        %p © FURIMA
