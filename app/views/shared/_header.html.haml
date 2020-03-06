@@ -1,0 +1,16 @@
+.header
+  .upper
+    .upper__logo
+      = image_tag 'material/logo/logo.png', size: "150x40",class:'logo2'
+    .upper__search
+      %input.text-serch
+      %button 
+        =icon('fas','search')
+
+  .bottom
+    .bottom__left
+      =link_to "カテゴリー"
+      =link_to "ブランド"
+    .bottom__right
+      =link_to "ログイン"
+      =link_to "新規会員登録"

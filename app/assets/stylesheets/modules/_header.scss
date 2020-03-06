@@ -1,0 +1,75 @@
+// インプットタグ初期化
+
+.text-search {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+}
+
+.text-test:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+// 共通
+
+
+a{
+  text-decoration: none;
+}
+
+// ここからヘッダー
+
+.header{
+  background-color: white;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  padding: 15px 0;
+}
+
+.upper{
+  display: flex;
+  width: 75vw;
+  margin: 0 auto;
+
+  &__logo{
+
+  }
+  &__search{
+    width: 100%;
+    input{
+    margin-left:20px ;
+    width:90%;
+    height: 30px;
+    }
+    button{
+      background-color: #3CCACE;
+      border: none;
+      height: 34px;
+      width:35px;
+      color: white;
+      font-size: 18px;
+      position: relative;
+      right:10px
+    }
+
+  }
+}
+
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 75vw;
+  margin: 0 auto;
+  a{
+    margin-right: 20px;
+    color: #333;
+  }
+}
