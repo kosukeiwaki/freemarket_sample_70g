@@ -10,23 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_061409) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "zip", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "block"
-    t.string "building"
-    t.integer "phone_number"
-    t.string "lastname", null: false
-    t.string "firstname", null: false
-    t.string "lastname_kana", null: false
-    t.string "firstname_kana", null: false
-    t.bigint "user_id"
+ActiveRecord::Schema.define(version: 2020_03_06_032003) do
+
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "payjp_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
+
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,5 +53,8 @@ ActiveRecord::Schema.define(version: 2020_03_06_061409) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
+
+
+  add_foreign_key "creditcards", "users"
+
 end
