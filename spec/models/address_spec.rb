@@ -50,10 +50,10 @@ describe Address do
       expect(address.errors[:firstname_kana]).to include('が入力されていません')
     end
 
-    it 'is invalid entered in other than number' do
-      address = build(:address, zip: "あああ")
+    it 'is invalid with a hyphen' do
+      address = build(:address, zip: "111-1111")
       address.valid?
-      expect(address.errors[:zip]).to include('は数字で入力してください')
+      expect(address.errors[:zip]).to include('ハイフンなし7桁の数字を入力してください')
     end
 
     it "is invalid entered in half-width" do
