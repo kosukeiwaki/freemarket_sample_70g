@@ -83,5 +83,43 @@ describe User do
       expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
     end
 
+
+    it "@ is not include" do
+      user = build(:user, email: "aaa.bbb")
+      user.valid?
+      expect(user.errors[:email]).to include("メールアドレスが正しくありません")
+    end
+
+    it ". is not include" do
+      user = build(:user, email: "aaa@bbb")
+      user.valid?
+      expect(user.errors[:email]).to include("メールアドレスが正しくありません")
+    end
+
+    it "is invalid entered in half-width" do
+      user = build(:user, lastname: "nitta")
+      user.valid?
+      expect(user.errors[:lastname]).to include("全角で入力してください")
+    end
+
+    it "is invalid entered in half-width" do
+      user = build(:user, firstname: "hitoshi")
+      user.valid?
+      expect(user.errors[:firstname]).to include("全角で入力してください")
+    end
+
+    it "is invalid entered in other than full-width hiragana" do
+      user = build(:user, lastname_kana: "ニッタ")
+      user.valid?
+      expect(user.errors[:lastname_kana]).to include("全角ひらがなで入力してください")
+    end
+
+    it 'is invalid entered in other than full-width hiragana' do
+      user = build(:user, firstname_kana: "ヒトシ")
+      user.valid?
+      expect(user.errors[:firstname_kana]).to include("全角ひらがなで入力してください")
+    end
+
+
   end
 end

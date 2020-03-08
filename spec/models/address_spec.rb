@@ -50,5 +50,36 @@ describe Address do
       expect(address.errors[:firstname_kana]).to include("can't be blank")
     end
 
+    it 'is invalid entered in other than full-width hiragana' do
+      address = build(:address, zip: "あああ")
+      address.valid?
+      expect(address.errors[:zip]).to include("is not a number")
+    end
+
+    it "is invalid entered in half-width" do
+      address = build(:address, lastname: "nitta")
+      address.valid?
+      expect(address.errors[:lastname]).to include("全角で入力してください")
+    end
+
+    it "is invalid entered in half-width" do
+      address = build(:address, firstname: "hitoshi")
+      address.valid?
+      expect(address.errors[:firstname]).to include("全角で入力してください")
+    end
+
+    it "is invalid entered in other than full-width hiragana" do
+      address = build(:address, lastname_kana: "ニッタ")
+      address.valid?
+      expect(address.errors[:lastname_kana]).to include("全角ひらがなで入力してください")
+    end
+
+    it 'is invalid entered in other than full-width hiragana' do
+      address = build(:address, firstname_kana: "ヒトシ")
+      address.valid?
+      expect(address.errors[:firstname_kana]).to include("全角ひらがなで入力してください")
+    end
+
+
   end
 end
