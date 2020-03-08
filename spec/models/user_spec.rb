@@ -8,16 +8,16 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "is invalid without a firstname_kana" do
-      user = build(:user, firstname_kana: "")
+    it "is invalid without a nickname" do
+      user = build(:user, nickname: "")
       user.valid?
-      expect(user.errors[:firstname_kana]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("can't be blank")
     end
 
-    it "is invalid without an lastname_kana" do
-      user = build(:user, lastname_kana: "")
+    it "is invalid without an email" do
+      user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:lastname_kana]).to include("can't be blank")
+      expect(user.errors[:email]).to include("can't be blank")
     end
 
     it "is invalid without a password" do
