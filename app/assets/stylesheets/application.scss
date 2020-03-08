@@ -1,11 +1,14 @@
 @import "reset";
+
 @import "font-awesome-sprockets";	@import "font-awesome-sprockets";
 @import "font-awesome";	@import "font-awesome";
-// @import "modules/footer";
-// @import "modules/header";
-// @import "modules/new";
-@import "form";
+@import "modules/footer";
+@import "modules/header";
+@import "modules/new";
+@import "modules/index";
+@import "modules/show";
 
 *{
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
   }
+
