@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
-  validates :zip, :prefecture, :city, :lastname, :firstname, :lastname_kana, :firstname_kana, presence: true
-  validates :zip, numericality: true
+  validates :zip, :prefecture, :city, :lastname, :firstname, :lastname_kana, :firstname_kana, presence: {message: 'が入力されていません'}
+  validates :zip, numericality: {message: 'は数字で入力してください'}
   validates :lastname, :firstname, format: {
     with: /\A[ぁ-んァ-ヶー一-龠]+\z/, message: "全角で入力してください"
   }

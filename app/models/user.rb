@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  validates :nickname, :email, :password, :firstname,:lastname, :lastname_kana, :firstname_kana, :birthday, presence: true
+  validates :nickname, :email, :password, :firstname,:lastname, :lastname_kana, :firstname_kana, :birthday, presence: { message: 'が入力されていません' }
   validates :email, format: {
     with:  /\A\S+@\S+\.\S+\z/, message: "メールアドレスが正しくありません"
   }
