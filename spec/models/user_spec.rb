@@ -26,7 +26,7 @@ describe User do
       expect(user.errors[:password]).to include('が入力されていません')
     end
 
-    it "is invalid without an lastname" do
+    it "is invalid without a lastname" do
       user = build(:user, lastname: "")
       user.valid?
       expect(user.errors[:lastname]).to include('が入力されていません')
@@ -38,7 +38,7 @@ describe User do
       expect(user.errors[:firstname]).to include('が入力されていません')
     end
 
-    it "is invalid without an lastname_kana" do
+    it "is invalid without a lastname_kana" do
       user = build(:user, lastname_kana: "")
       user.valid?
       expect(user.errors[:lastname_kana]).to include('が入力されていません')
@@ -50,7 +50,7 @@ describe User do
       expect(user.errors[:firstname_kana]).to include('が入力されていません')
     end
 
-    it "is invalid without an birthday" do
+    it "is invalid without a birthday" do
       user = build(:user, birthday: "")
       user.valid?
       expect(user.errors[:birthday]).to include('が入力されていません')

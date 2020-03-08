@@ -8,43 +8,43 @@ describe Address do
       expect(address).to be_valid
     end
 
-    it "is invalid without an zip" do
+    it "is invalid without a zip" do
       address = build(:address, zip: "")
       address.valid?
       expect(address.errors[:zip]).to include('が入力されていません')
     end
 
-    it "is invalid without an prefecture" do
+    it "is invalid without a prefecture" do
       address = build(:address, prefecture: "")
       address.valid?
       expect(address.errors[:prefecture]).to include('が入力されていません')
     end
 
-    it "is invalid without an city" do
+    it "is invalid without a city" do
       address = build(:address, city: "")
       address.valid?
       expect(address.errors[:city]).to include('が入力されていません')
     end
 
-    it "is invalid without an lastname" do
+    it "is invalid without a lastname" do
       address = build(:address, lastname: "")
       address.valid?
       expect(address.errors[:lastname]).to include('が入力されていません')
     end
 
-    it "is invalid without an firstname" do
+    it "is invalid without a firstname" do
       address = build(:address, firstname: "")
       address.valid?
       expect(address.errors[:firstname]).to include('が入力されていません')
     end
 
-    it "is invalid without an lastname_kana" do
+    it "is invalid without a lastname_kana" do
       address = build(:address, lastname_kana: "")
       address.valid?
       expect(address.errors[:lastname_kana]).to include('が入力されていません')
     end
 
-    it "is invalid without an firstname_kana" do
+    it "is invalid without a firstname_kana" do
       address = build(:address, firstname_kana: "")
       address.valid?
       expect(address.errors[:firstname_kana]).to include('が入力されていません')
