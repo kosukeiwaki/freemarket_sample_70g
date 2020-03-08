@@ -50,7 +50,7 @@ describe Address do
       expect(address.errors[:firstname_kana]).to include("can't be blank")
     end
 
-    it 'is invalid entered in other than full-width hiragana' do
+    it 'is invalid entered in other than number' do
       address = build(:address, zip: "あああ")
       address.valid?
       expect(address.errors[:zip]).to include("is not a number")
