@@ -1,197 +1,203 @@
 .showMain {
   background-color: #f8f8f8;
   padding: 40px;
-  .topContent {
+  .rightContent{
     width: 700px;
     margin: 0 auto;
-    .itemBox {
-      background-color: white;
-      padding: 24px 40px 40px;
-      .itemBox__name {
-        text-align: center;
-        font-weight: bold;
-        font-size: 24px;
-      }
-      .itemBox__body {
-        margin-top: 16px;
-        ul {
-          display: flex;
-          position: relative;
-          li {
+
+    .topContent {
+      .itemBox2 {
+        background-color: white;
+        padding: 24px 40px 40px;
+        
+        .itemBox2__name {
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        .itemBox2__body {
+          margin-top: 16px;
+          ul {
             display: flex;
-            flex-direction: column;
-            width: 560px;
-            align-items: center;
-            margin: 0 auto;
-            img {
-              object-fit: cover;
-              height: 346px;
-            }
-            ul {
+            position: relative;
+            li {
               display: flex;
-              justify-content: center;
-              margin-top: 10px;
-              width: 100%;
-              li {
-                width: 25%;
-                margin: 0 10px 0 0;
-                img {
-                  object-fit: cover;
-                  height: 87px;
+              flex-direction: column;
+              width: 560px;
+              align-items: center;
+              margin: 0 auto;
+              img {
+                object-fit: cover;
+                height: 346px;
+              }
+              ul {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                // width: 100%;
+                li {
+                  width: 35%;
+                  margin: 0 10px 0 0;
+                  img {
+                    object-fit: cover;
+                    height: 87px;
+                  }
                 }
               }
             }
           }
         }
-      }
-      .itemBox__price {
-        text-align: center;
-        margin: 24px 0 24px;
-        span {
-          font-size: 46px;
-          font-weight: bold;
-          margin-right: 10px;
-          display: block;
-        }
-        &--detail {
-          span {
-            font-size: 16px;
-            font-weight: normal;
-          }
-        }
-      }
-      .itemDetail {
-        line-height: 1.5;
-        font-size: 18px;
-        margin-bottom: 30px;
-        }
-      
-        table {
-          width: 100%;
-          height: 375px;
-          border: lightgray;
-          margin-bottom: 20px;
-          .left-top {
-            background-color: #EEEEEE;
-            width: 20%;
-            text-align: center;
-            font-weight: 400px;
-            padding: 8px;
-            font-size: 14px;
-          }
-          .right-top {
-            width: 61%;
-            font-weight: 400px;
-            padding: 15px;
-            font-size: 14px;
-          }
-          .left-lists {
-            background-color: #EEE;
-            text-align: center;
-            font-weight: 400px;
-            padding: 8px;
-            font-size: 14px;
-          }
-          .right-lists {
-            font-weight: 400px;
-            padding: 15px;
-            font-size: 14px;
-          }
-      }
-        .optionalArea {
-          display: flex;
-          justify-content: space-between;
-          .optionalBtnLikebtn {
-            display: inline-block;            
-            padding: 6px 10px;
-            margin-right: 0 auto;
-            border: 1px solid #ffb340;
-            border-radius: 40px;
-            &:hover {
-              opacity: 0.5 ;
-            }
-            .likeBtn {
-              text-decoration: none;
-              color: #3ccace;
-              .textFavorite {
-                float: right;
-                margin-left: 5px;
-              }
-            }
-          }
-          .optionalBtn {
-            font-size: 14px;
-            border: 1px solid #333;
-            display: inline-block;
-            border-radius: 4px;
-            padding: 6px 10px;
-            &:hover {
-              opacity: 0.5 ;
-            }
-            .reportBtn {
-              text-decoration: none;
-              color: #333;
-              .textReport {
-                float: right;
-                margin-left: 5px;
-                
-              }
-            }
-          }
-        }
-    }
-        .commentBox {
-          background-color: white;
-          padding: 24px;
+        .itemBox__price {
           text-align: center;
-          .commentContents {
-            .comment {
-              width: 100%;
-              min-height: 104px;
+          margin: 24px 0 24px;
+          span {
+            font-size: 46px;
+            font-weight: bold;
+            margin-right: 10px;
+            display: block;
+            line-height: 1.2;
+          }
+          &--detail {
+            span {
+              font-size: 16px;
+              font-weight: normal;
             }
-            .noticeMsg {
-              background-color: #f8f8f8;
-              margin: 10px 0;
-              text-align: left;
+          }
+        }
+        .itemDetail {
+          line-height: 1.5;
+          font-size: 18px;
+          margin-bottom: 30px;
+          }
+        
+          table {
+            width: 100%;
+            height: 375px;
+            border: lightgray;
+            margin-bottom: 20px;
+            .left-top {
+              background-color: #EEEEEE;
+              width: 20%;
+              text-align: center;
+              font-weight: 400;
+              padding: 8px;
               font-size: 14px;
             }
-            .commentBtnBox {
-              background-color: #3ccace;
-              color: #fff;
-              border: 1px solid #3ccace;
-              border-radius: 100px;
-              line-height: 48px;
-              width: 60%;
-              font-size: 18px;
-              display: inline-block;
-              .fas.fa-comment {
-                text-decoration: none;
-                border: none;
+            .right-top {
+              width: 61%;
+              font-weight: 400;
+              padding: 15px;
+              font-size: 14px;
+            }
+            .left-lists {
+              background-color: #EEE;
+              text-align: center;
+              font-weight: 400px;
+              padding: 8px;
+              font-size: 14px;
+            }
+            .right-lists {
+              font-weight: 400px;
+              padding: 15px;
+              font-size: 14px;
+            }
+        }
+          .optionalArea {
+            display: flex;
+            justify-content: space-between;
+            .optionalBtnLikebtn {
+              display: inline-block;            
+              padding: 6px 10px;
+              margin-right: 0 auto;
+              border: 1px solid #ffb340;
+              border-radius: 40px;
+              &:hover {
+                opacity: 0.5 ;
               }
-              .commentBtn {
-                background-color: #3ccace;
-                color: #fff;
-                border-style: none;
+              .likeBtn {
+                text-decoration: none;
+                color: #3ccace;
+                .textFavorite {
+                  float: right;
+                  margin-left: 5px;
+                }
+              }
+            }
+            .optionalBtn {
+              font-size: 14px;
+              border: 1px solid #333;
+              display: inline-block;
+              border-radius: 4px;
+              padding: 6px 10px;
+              &:hover {
+                opacity: 0.5 ;
+              }
+              .reportBtn {
+                text-decoration: none;
+                color: #333;
+                .textReport {
+                  float: right;
+                  margin-left: 5px;
+                  
+                }
               }
             }
           }
-        }
-        .links {
-          display: flex;
-          justify-content: space-between;
-          .itemLinks {          
+      }
+          .commentBox {
+            background-color: white;
+            padding: 24px;
+            text-align: center;
+            margin-top: 10px;
+            .commentContents {
+              .comment {
+                width: 100%;
+                min-height: 104px;
+              }
+              .noticeMsg {
+                background-color: #f8f8f8;
+                margin: 10px 0;
+                text-align: left;
+                font-size: 14px;
+              }
+              .commentBtnBox {
+                background-color: #3ccace;
+                color: #fff;
+                border: 1px solid #3ccace;
+                border-radius: 100px;
+                line-height: 48px;
+                width: 60%;
+                font-size: 18px;
+                display: inline-block;
+                .fas.fa-comment {
+                  text-decoration: none;
+                  border: none;
+                }
+                .commentBtn {
+                  background-color: #3ccace;
+                  color: #fff;
+                  border-style: none;
+                }
+              }
+            }
+          }
+          .links {
+            display: flex;
+            justify-content: space-between;
+            .itemLinks {
+              text-decoration: none;
+              color: #3ccace;
+              }
+          }
+          .productLists {
+            display: block;
+            margin: 24px 0 8px;
             text-decoration: none;
             color: #3ccace;
-            }
-        }
-        .productLists {
-          display: block;
-          margin: 24px 0 8px;
-          text-decoration: none;
-          color: #3ccace;
-          font-weight: bold;
-          font-size: 22px;          
-        }
-    
+            font-weight: bold;
+            font-size: 22px;          
+          }
+      
+    }
   }
 }

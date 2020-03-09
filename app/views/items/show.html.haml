@@ -1,79 +1,83 @@
 .main 
   .showMain
-    .topContent
-      .itemBox
-        .itemBox__name
-          %p item 1
-        .itemBox__body
-          %ul
-            %li.mainImage 
-              = image_tag "material/pict/dish1.png", size:"560x346"
-              %ul.subImage
-                %li
-                  = image_tag "material/pict/a004.png", size:"140x87"
-                %li
-                  = image_tag "material/pict/a005.png", size:"140x87"
-                %li
-                  = image_tag "material/pict/a006.png", size:"140x87"
-        .itemBox__price
-          %span ¥20000
-          .itemBox__price--detail
-            %span （税込）送料込み
-        .itemDetail
-          %p 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
-        .table
-        %table{:border => "1"}
-          %tr
-            %th.left-top 出品者 
-            %th.right-top hoge
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-          %tr
-            %td.left-lists 項目
-            %td.right-lists 説明
-        .optionalArea
-          %ul
-            %li.optionalBtnLikebtn
-              = link_to "#", class: "likeBtn" do
-                = icon('fas fa-star fa-xs', class: 'starIcon')
-                %p.textFavorite お気に入り 0
-          %ul.optional
-            %li.optionalBtn
-              = link_to "#", class: "reportBtn" do
-                = icon('fa fa-flag fa-xs', class: 'flagIcon')
-                %p.textReport 不適切な商品の通報
-      .commentBox
-        %ul.commentContents
-          = form_for "#" do |f|
-            = f.text_area :text, class: 'comment'
-            %p.noticeMsg 
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br 
-                不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .commentBtnBox
-              = icon('fas fa-comment', class: 'commentIcon')
-              = f.submit class: 'commentBtn', value: 'コメントする'
-      %ul.links 
-        = link_to "< 前の商品", "#", class: "itemLinks"
-        = link_to "後ろの商品 >", "#", class: "itemLinks"
-      .relatedItems
-        = link_to "メンズをもっと見る", "#", class: "productLists"
+    .rightContent
+      .topContent
+        .itemBox2
+          .itemBox2__name
+            = @item.name
+          .itemBox2__body
+            %ul
+              %li.mainImage 
+                = image_tag @image.picture, size:"560x346"
+                %ul.subImage
+                  %li
+                    = image_tag @image.picture, size:"140x87"
+                  %li
+                    = image_tag @image.picture, size:"140x87"
+                  %li
+                    = image_tag @image.picture, size:"140x87"
+          .itemBox__price
+            %span ¥#{@item.price}
+            .itemBox__price--detail
+              %span （税込）送料込み
+          .itemDetail
+            = @item.detail
+          .table
+          %table{:border => "1"}
+            %tr
+              %th.left-top 出品者 
+              %th.right-top 
+                = @user.email
+            %tr
+              %td.left-lists カテゴリー
+              %td.right-lists 仮置き
+            %tr
+              %td.left-lists ブランド
+              %td.right-lists 
+                = @item.brand
+            %tr
+              %td.left-lists 商品のサイズ
+              %td.right-lists 
+                = @item.size
+            %tr
+              %td.left-lists 商品の状態
+              %td.right-lists 
+                = @item.status
+            %tr
+              %td.left-lists 配送料の負担
+              %td.right-lists
+                #{@item.fee}円
+            %tr
+              %td.left-lists 発送元の地域
+              %td.right-lists 仮置き
+            %tr
+              %td.left-lists 発送日の目安
+              %td.right-lists
+                = @item.shipping_date
+          .optionalArea
+            %ul
+              %li.optionalBtnLikebtn
+                = link_to "#", class: "likeBtn" do
+                  = icon('fas fa-star fa-xs', class: 'starIcon')
+                  %p.textFavorite お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to "#", class: "reportBtn" do
+                  = icon('fa fa-flag fa-xs', class: 'flagIcon')
+                  %p.textReport 不適切な商品の通報
+        .commentBox
+          %ul.commentContents
+            = form_for "#" do |f|
+              = f.text_area :text, class: 'comment'
+              %p.noticeMsg 
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br 
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              .commentBtnBox
+                = icon('fas fa-comment', class: 'commentIcon')
+                = f.submit class: 'commentBtn', value: 'コメントする'
+        %ul.links 
+          = link_to "< 前の商品", "#", class: "itemLinks"
+          = link_to "後ろの商品 >", "#", class: "itemLinks"
+        .relatedItems
+          = link_to "メンズをもっと見る", "#", class: "productLists"
