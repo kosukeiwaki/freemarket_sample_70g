@@ -246,6 +246,17 @@ $mainback:#f8f8f8;
   }
 }
 
+.size{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+
 .shipping{
   .fee{
     @include mainBox();

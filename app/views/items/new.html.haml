@@ -48,6 +48,14 @@
             %span.gray 任意
           .bland__form
           = f.text_field :brand, placeholder: "ブランドを入力", class: "text-test"
+
+        .size
+          .size__name
+            =f.label :商品のサイズ
+            %span.gray 任意
+          .size__form
+          = f.text_field :size, placeholder: "サイズを入力", class: "text-test"
+
         .status
           .status__name
             =f.label :商品の状態
@@ -55,6 +63,7 @@
           .status__form
             = f.select :status, Item.statuses.keys.to_a,  {prompt: "選択してください"}, {class: 'select-test'}
             
+
       .shipping
         .fee
           %p.grayP 送料について
