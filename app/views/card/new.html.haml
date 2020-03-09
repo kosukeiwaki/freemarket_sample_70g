@@ -6,7 +6,7 @@
       %table
         %tr
           %th
-            =link_to 'マイページ'
+            =link_to "マイページ", user_path(current_user.id)
         %tr
           %td
             =link_to 'いいねした商品'
@@ -35,13 +35,14 @@
             ユーザー情報
         %tr
           %td
-            =link_to 'ログアウト'
+            =link_to destroy_user_session_path,method: :delete do
+              ログアウト
         %tr
           %td
             =link_to '情報変更'
         %tr
           %td
-            =link_to 'クレジットカード登録'
+            =link_to "クレジットカード登録", new_card_path
         %tr
           %td
             =link_to 'クレジットカード変更'
