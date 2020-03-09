@@ -72,12 +72,12 @@
             %span.red 必須
           .fee__form
             = f.select :fee, Item.fees.keys.to_a,  {prompt: "選択してください"}, {class: 'select-test'}
+
         .region
           .region__name
             =f.label :発送元の地域
             %span.red 必須
           .region__form
-
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
               
         .date
