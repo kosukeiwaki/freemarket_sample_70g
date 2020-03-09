@@ -1,3 +1,13 @@
+@mixin editBoxBtn {
+  display: block;
+  margin: 16px 0 16px 0;
+  line-height: 48px;
+  text-decoration: none;
+  color: white;
+  display: block;
+
+}
+
 .showMain {
   background-color: #f8f8f8;
   padding: 40px;
@@ -144,6 +154,30 @@
             }
           }
       }
+      .editBox {
+        text-align: center;
+        background-color: white;
+        margin: 24px 0 24px 0;
+        padding: 8px 16px;
+        .itemEditBtn {
+          background-color: red;
+          @include editBoxBtn;
+        }
+        .or {
+          line-height: 16px;
+        }
+        .itemStopBtn {
+          background-color: rgb(180, 178, 178);
+          @include editBoxBtn;
+          
+        }
+        .itemDestroyBtn {
+          background-color: rgb(180, 178, 178);
+          @include editBoxBtn;
+        }
+      }
+
+
           .commentBox {
             background-color: white;
             padding: 24px;
