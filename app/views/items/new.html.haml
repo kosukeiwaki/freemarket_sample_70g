@@ -9,7 +9,7 @@
       - @item.errors.full_messages.each do |message|
         = message
       = f.fields_for :images do |i|
-        = i.file_field :src
+        = i.file_field :picture
       .imageForm__top
         =f.label :出品画像 
         %span.red 必須
