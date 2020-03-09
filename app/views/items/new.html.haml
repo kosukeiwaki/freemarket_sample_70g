@@ -8,8 +8,8 @@
     = form_for @item, url: {action: "create"} do |f|
       - @item.errors.full_messages.each do |message|
         = message
-          = f.fields_for :images do |i|
-            = i.file_field :src
+      = f.fields_for :images do |i|
+        = i.file_field :src
       .imageForm__top
         =f.label :出品画像 
         %span.red 必須
