@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render new_item_path
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   private
     def item_params
       params.require(:item).permit(:name, :price, :size, :brand, :detail,
-                                   :status, :fee, :region, :shipping_date)
+                                   :status, :fee, :region, :shipping_date, images_attributes: [:src])
     end
   
 
