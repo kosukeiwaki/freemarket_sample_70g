@@ -6,6 +6,12 @@
   background-color:#f8f8f8;
   display: flex;
   padding: 50px 220px;
+  a{
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+
 }
 
 .left{
@@ -26,6 +32,9 @@
         }
         td{
           padding: 10px;
+          }
+        td:hover{
+          background-color:#eee ;
         }
       }
     }
@@ -44,6 +53,9 @@
         }
         td{
           padding: 10px;
+        }
+        td:hover{
+          background-color:#eee ;
         }
       }
     }
