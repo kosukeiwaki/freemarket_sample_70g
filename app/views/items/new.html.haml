@@ -6,6 +6,7 @@
   .itemBox
     .imageForm
     = form_for @item, url: {action: "create"} do |f|
+      = @item.errors.full_messages
       .imageForm__top
         =f.label :出品画像 
         %span.red 必須
@@ -89,8 +90,8 @@
             %p 販売利益
             %p =販売価格ー手数料＝
       .sure
-        %button.submit-test.redButtom{:type => "submit"} 出品する
+        = f.submit "出品する", class: 'submit-test redButtom'
         %button.submit-test.grayButtom{:type => "submit"} 戻る
       .warning
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-  = render "shared/footer"
+        = render "shared/footer"
