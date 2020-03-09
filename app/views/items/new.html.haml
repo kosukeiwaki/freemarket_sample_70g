@@ -18,18 +18,20 @@
           =f.label :商品名
           %span.red 必須
         .name__form
-          %input.text-test(type="text")/
+          = f.text_field :name, placeholder: "商品名を入力", class: "text-test"
+
       .explain
         .explain__top
-          %p 商品の説明
+          =f.label :商品の説明
           %span.red 必須
         .explain__form
-          %textarea.textarea-text(type="text")
+          = f.text_area :detail, placeholder: "商品の説明を入力", class: "textarea-test"
+
       .detail
         .category
           %p.grayP 商品の詳細
           .category__name
-            %p カテゴリー
+            =f.label :カテゴリー
             %span.red 必須
           .category__form
             %select.select-test
@@ -38,56 +40,48 @@
               %option セレクトC
         .bland
           .bland__name
-            %p ブランド
+            =f.label :ブランド
             %span.gray 任意
           .bland__form
-            %input.text-test(type="text" name="")/
+          = f.text_field :brand, placeholder: "ブランドを入力", class: "text-test"
         .status
           .status__name
-            %p 商品の状態
+            =f.label :商品の状態
             %span.red 必須
           .status__form
-            %select.select-test
-              %option セレクトA
-              %option セレクトB
-              %option セレクトC
+            = f.select :status, Item.statuses.keys.to_a,  {prompt: "選択してください"}, {class: 'select-test'}
+            
       .shipping
         .fee
           %p.grayP 送料について
           .fee__name
-            %p 配送料の負担
+            =f.label :配送料の負担
             %span.red 必須
           .fee__form
-            %select.select-test
-              %option セレクトA
-              %option セレクトB
-              %option セレクトC
+            = f.select :fee, Item.fees.keys.to_a,  {prompt: "選択してください"}, {class: 'select-test'}
         .region
           .region__name
-            %p 発送元の地域
+            =f.label :発送元の地域
             %span.red 必須
           .region__form
 
-          -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
               
         .date
           .date__name
-            %p 発送までの日数
+            =f.label :発送までの日数
             %span.red 必須
           .date__form
-            %select.select-test
-              %option セレクトA
-              %option セレクトB
-              %option セレクトC
+            = f.select :shipping_date, Item.shipping_dates.keys.to_a,  {prompt: "選択してください"}, {class: 'select-test'}
       .prices
         .price
           %p.grayLittle 価格（¥300〜9,999,999）
           .price__box
             .price__box__total
-              %p 販売価格
+              =f.label :販売価格
               %span.red 必須
             .price__box__form
-              %input.text-test(type="text")/
+              = f.text_field :price, placeholder: "販売価格を入力", class: "text-test"
           .price__tax
             %p 販売手数料(10%)
             %p =手数料の価格＝
