@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   validates :name, :price, :size, :status, :fee, :region, :shipping_date, presence: { message: 'が入力されていません' }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  has_many :images
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   enum status:{
     新品、未使用: 0, 
