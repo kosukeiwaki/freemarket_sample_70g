@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   validates :name, :price, :size, :status, :fee, :region, :shipping_date, presence: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
   def when_item_sold_out(item)
     if item.blank?

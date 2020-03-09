@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_061409) do
+ActiveRecord::Schema.define(version: 2020_03_09_041708) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip", null: false
@@ -29,25 +29,19 @@ ActiveRecord::Schema.define(version: 2020_03_06_061409) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "payjp_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_creditcards_on_user_id"
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "price", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.integer "price"
+    t.string "size"
     t.string "brand"
-    t.string "status", null: false
-    t.integer "fee", null: false
-    t.string "region", null: false
-    t.string "shipping_date", null: false
+    t.string "status"
+    t.integer "fee"
+    t.string "region"
+    t.string "shipping_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "detail"
+    t.integer "prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,5 +63,4 @@ ActiveRecord::Schema.define(version: 2020_03_06_061409) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "creditcards", "users"
 end
