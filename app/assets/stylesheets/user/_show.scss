@@ -100,3 +100,67 @@
     }
   }
 }
+
+// ここからユーザーのショーページ
+
+.cardBox{
+  background-color: white;
+  width:50vw;
+  margin-left: 80px;
+  &__name{
+    padding: 20px;
+    text-align: center;
+    border-bottom: #eee 2px solid;
+    h2{
+      font-size: 25px;
+      font-weight: 500;
+    }
+  }
+  &__info{
+    padding: 50px 50px 50px 50px;
+    text-align:left;
+    label{
+      font-weight: bold;
+    }
+    &__number{
+      padding: 24px 0;
+    }
+    #charge-form{
+      border-bottom: solid 1px #eee;
+      padding-bottom: 20px;
+      position: relative;
+    }
+    button{
+      border:solid #ea352d 1px;
+      color:#ea352d;
+      border-radius: 2px;
+      display: inline;
+      position: absolute;
+      top :-40px;
+      left: 150px;
+    }
+  }
+  &__explain{
+    text-align: right;
+    a{
+      color:#0088e8;
+    }
+  }
+}
+
+.cardBox{
+  background-color: white;
+  width:50vw;
+  margin-left: 80px;
+  h2{
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__reg{
+    padding: 20px;
+  label{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+}
