@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_034511) do
+ActiveRecord::Schema.define(version: 2020_03_09_054806) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "item_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
@@ -34,7 +41,17 @@ ActiveRecord::Schema.define(version: 2020_03_09_034511) do
     t.integer "stock"
     t.text "detail"
     t.bigint "user_id"
+    t.integer "prefecture"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "items_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_categories_on_category_id"
+    t.index ["item_id"], name: "index_items_categories_on_item_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,4 +68,6 @@ ActiveRecord::Schema.define(version: 2020_03_09_034511) do
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
+  add_foreign_key "items_categories", "categories"
+  add_foreign_key "items_categories", "items"
 end
