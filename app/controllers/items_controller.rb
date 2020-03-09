@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = User.find(params[:id])
     @image = Image.find(params[:id])
+    @category = Category.find(params[:id])
+    
 
   end
 

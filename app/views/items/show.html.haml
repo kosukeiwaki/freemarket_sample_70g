@@ -30,7 +30,8 @@
                 = @user.email
             %tr
               %td.left-lists カテゴリー
-              %td.right-lists 仮置き
+              %td.right-lists 
+                = @category.name
             %tr
               %td.left-lists ブランド
               %td.right-lists 
@@ -49,7 +50,8 @@
                 #{@item.fee}円
             %tr
               %td.left-lists 発送元の地域
-              %td.right-lists 仮置き
+              %td.right-lists
+                = @item.region 
             %tr
               %td.left-lists 発送日の目安
               %td.right-lists
