@@ -1,3 +1,5 @@
+= render "shared/header"
+
 .sign--page
   .sign
     .sign__container
@@ -79,5 +81,6 @@
               = f.submit "次へ", class: 'regist--btn'
               %h2 アカウントをお持ちの方はこちら
             = link_to "ログイン", new_session_path(resource_name), class: "login--btn"
+= render "shared/footer"
 
 
