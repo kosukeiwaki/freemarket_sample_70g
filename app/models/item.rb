@@ -25,6 +25,11 @@ class Item < ApplicationRecord
     "4~7日で発送": 2
   }
 
+  enum stock:{
+    出品中: 0,
+    売却済: 1
+  }
+
   def when_item_sold_out(item)
     if item.blank?
       "売り切れです"
