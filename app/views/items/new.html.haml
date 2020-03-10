@@ -14,8 +14,12 @@
       .imageForm__text
         %p 最大10枚までアップロードできます。
       .imageForm__form
-        = f.fields_for :images do |i|
-          = i.file_field :picture
+        #image-box
+          = f.fields_for :images do |i|
+            .js-file_group{"data-index" => "#{i.index}"}
+              = i.file_field :picture, class: "js-file"
+              %br
+              .js-remove 削除
 
       .name
         .name__top
