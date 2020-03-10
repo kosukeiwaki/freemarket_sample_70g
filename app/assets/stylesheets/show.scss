@@ -20,36 +20,33 @@
         background-color: white;
         padding: 24px 40px 40px;
         
-        .itemBox2__name {
+        &__name {
           text-align: center;
           font-weight: bold;
           font-size: 24px;
         }
-        .itemBox2__body__main {
+        &__main {
           margin-top: 16px;
           ul {
             display: flex;
             position: relative;
             li {
               display: flex;
-              // flex-direction: column;
               width: 560px;
               align-items: center;
               margin: 0 auto;
               overflow: hidden;
               img {
                 object-fit: cover;
-                // height: 346px;
               }
             }
           }
         }
-        .itemBox2__body__sub {
+        &__body__sub {
           ul {
             display: flex;
             justify-content: center;
             margin-top: 10px;
-            // width: 100%;
             li {
               width: 35%;
               margin: 0 10px 0 0;
@@ -60,7 +57,7 @@
               }
           }
         }
-        .itemBox__price {
+        &__price {
           text-align: center;
           margin: 24px 0 24px;
           span {
@@ -243,8 +240,7 @@
             color: #3ccace;
             font-weight: bold;
             font-size: 22px;          
-          }
-      
+          }      
     }
   }
 }

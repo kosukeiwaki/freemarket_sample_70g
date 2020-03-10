@@ -16,9 +16,9 @@
               - @item.images.each do |image|
                 %li
                   = image_tag image.picture, size:"140x87"
-          .itemBox__price
+          .itemBox2__price
             %span ¥#{@item.price}
-            .itemBox__price--detail
+            .itemBox2__price--detail
               %span （税込）送料込み
           - unless user_signed_in? && current_user.id == @user.id
             .itemBuyBtn 
