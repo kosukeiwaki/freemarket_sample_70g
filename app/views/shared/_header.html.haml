@@ -10,7 +10,7 @@
   .bottom
     .bottom__left
       =link_to "カテゴリー"
-      =link_to "ブランド"
+      =link_to "ブランド", destroy_user_session_path,method: :delete
     .bottom__right
       =link_to "ログイン", new_user_session_path
       =link_to "新規会員登録", new_user_registration_path
