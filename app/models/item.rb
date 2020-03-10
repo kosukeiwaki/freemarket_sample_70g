@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, presence: { message: 'が入力されていません' }
+  validates :name, :price, :status, :fee, :region, :prefecture_id, :shipping_date, presence: { message: 'が入力されていません' }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :images

@@ -13,10 +13,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    @item.region = @item.prefecture.name
-    @item.stock = 0
 
     if @item.save
+      @item.region = @item.prefecture.name
+      @item.stock = 0  
       redirect_to root_path
     else
       render :new
