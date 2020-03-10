@@ -4,7 +4,8 @@ class CardController < ApplicationController
   before_action :set_card
 
   def new
-    redirect_to action: "show" if @card.exists?
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -21,8 +22,10 @@ class CardController < ApplicationController
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
+        flash[:success] = '登録に成功しました'
       else
         redirect_to action: "pay"
+        flash[:alart] = '登録に失敗しました'
       end
     end
   end
@@ -30,16 +33,17 @@ class CardController < ApplicationController
   def delete #PayjpとCardデータベースを削除します
     if @card.present?
       Payjp.api_key = "sk_test_f7fbcf1683090edbdfed5d6d"
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
     end
       redirect_to action: "new"
+      flash[:success] = '登録を削除しました'
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
     if @card.blank?
-      redirect_to action: "new" 
+      redirect_to action: "new"
     else
       Payjp.api_key = "sk_test_f7fbcf1683090edbdfed5d6d"
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -51,5 +55,5 @@ end
 private
 
 def set_card
-  @card = Card.where(user_id: current_user.id)
+  @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
 end
