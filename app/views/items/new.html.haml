@@ -8,15 +8,15 @@
     = form_for @item, url: {action: "create"} do |f|
       - @item.errors.full_messages.each do |message|
         = message
-      = f.fields_for :images do |i|
-        = i.file_field :picture
       .imageForm__top
         =f.label :出品画像 
         %span.red 必須
       .imageForm__text
         %p 最大10枚までアップロードできます。
       .imageForm__form
-        %input.text-test(type="image")/
+        = f.fields_for :images do |i|
+          = i.file_field :picture
+
       .name
         .name__top
           =f.label :商品名
