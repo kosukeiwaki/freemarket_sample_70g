@@ -4,7 +4,7 @@ class CardController < ApplicationController
   before_action :set_card
 
   def new
-    @card = Card.new
+    card = Card.new
   end
 
   def pay 
