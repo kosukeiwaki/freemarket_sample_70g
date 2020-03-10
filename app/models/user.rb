@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :nickname, :email, :password, :firstname,:lastname, :lastname_kana, :firstname_kana, :birthday, presence: { message: 'が入力されていません' }
