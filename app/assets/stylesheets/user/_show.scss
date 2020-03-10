@@ -1,0 +1,166 @@
+// 共通
+
+// ここからメイン
+
+.mainUser{
+  background-color:#f8f8f8;
+  display: flex;
+  padding: 50px 220px;
+  a{
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+
+}
+
+.left{
+  width: 25vw;
+
+  .leftUpper{
+    margin-bottom: 20px;
+    width: 100%;
+
+    table{
+      width: 100%;
+      tr{
+        border: solid 1px black;
+        background-color: white;
+        th{
+          padding: 10px;
+          background-color: #eee;
+        }
+        td{
+          padding: 10px;
+          }
+        td:hover{
+          background-color:#eee ;
+        }
+      }
+    }
+  }
+  .leftBottom{
+    margin-top: 20px;
+    background-color:white;
+    table{
+      width: 100%;
+      tr{
+        border: solid 1px black;
+        background-color: white;
+        th{
+          padding: 10px;
+          background-color: #eee;
+        }
+        td{
+          padding: 10px;
+        }
+        td:hover{
+          background-color:#eee ;
+        }
+      }
+    }
+
+  }
+}
+
+.right{
+  width:50vw;
+  margin-left: 80px;
+  .userBox{
+    background-color: white;
+    margin-bottom: 20px;
+    &__name{
+      padding: 20px;
+      font-size: 20px;
+      border: black solid 1px;
+    }
+    &__title{
+      padding:10px;
+      border: solid black 1px;
+
+    }
+    &__items{
+      height: 248px;
+      border: solid black 1px;
+
+    }
+  }
+  .rightBottom{
+    background-color: white;
+    .favorite{ 
+      border: solid black 1px;
+      padding: 10px;
+
+
+    }
+    .itemBox{
+      border: solid 1px black;
+      height: 178px;
+
+    }
+  }
+}
+
+// ここからユーザーのショーページ
+
+.cardBox{
+  background-color: white;
+  width:50vw;
+  margin-left: 80px;
+  &__name{
+    padding: 20px;
+    text-align: center;
+    border-bottom: #eee 2px solid;
+    h2{
+      font-size: 25px;
+      font-weight: 500;
+    }
+  }
+  &__info{
+    padding: 50px 50px 50px 50px;
+    text-align:left;
+    label{
+      font-weight: bold;
+    }
+    &__number{
+      padding: 24px 0;
+    }
+    #charge-form{
+      border-bottom: solid 1px #eee;
+      padding-bottom: 20px;
+      position: relative;
+    }
+    button{
+      border:solid #ea352d 1px;
+      color:#ea352d;
+      border-radius: 2px;
+      display: inline;
+      position: absolute;
+      top :-40px;
+      left: 150px;
+    }
+  }
+  &__explain{
+    text-align: right;
+    a{
+      color:#0088e8;
+    }
+  }
+}
+
+.cardBox{
+  background-color: white;
+  width:50vw;
+  margin-left: 80px;
+  h2{
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__reg{
+    padding: 20px;
+  label{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+}
