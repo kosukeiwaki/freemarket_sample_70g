@@ -3,9 +3,9 @@ class CardController < ApplicationController
   require "payjp"
   before_action :set_card
 
-  def new
-    card = Card.new
-  end
+  # def new
+  #   card = Card.new
+  # end
 
   def pay 
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_ACCESS_KEY]
@@ -36,13 +36,13 @@ class CardController < ApplicationController
       customer.delete
       @card.delete
     end
-      redirect_to action: "new"
+      redirect_to controller: "card", action: "new"
       flash[:success] = '登録を削除しました'
   end
 
   def show 
     if @card.blank?
-      redirect_to action: "new"
+      redirect_to controller: "card", action: "new"
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)

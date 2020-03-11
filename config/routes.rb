@@ -13,14 +13,26 @@ Rails.application.routes.draw do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
+      post 'buy', to: 'card#buy'
+      post 'index', to: 'card#index'
     end
   end
   
   resources :items do
     member do
-      get :confirm
+      resources :purchase, only: [:index] do
+        collection do
+          get 'index', to: 'purchase#index'
+          post 'pay', to: 'purchase#pay'
+          get 'done', to: 'purchase#done'
+        end
+      end
     end
   end
   resources :users
+
+ 
+
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
