@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -15,12 +16,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-  
-  resources :items do
-    member do
-      get :confirm
-    end
-  end
-  resources :users
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
