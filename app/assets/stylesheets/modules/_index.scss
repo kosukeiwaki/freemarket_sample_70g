@@ -291,6 +291,14 @@
             }
             p{
               font-size: 10px;
+              padding-bottom: 10px;
+            }
+            &__soldout{
+              font-size: 22px;
+              font-weight: bold;
+              color: red;
+              border: solid 3px red;
+              padding: 0 5px;
             }
           }
         }

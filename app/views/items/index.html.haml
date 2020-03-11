@@ -106,48 +106,29 @@
     .pickupItem__box
       .pickupItem__box__head
         = link_to"#" do
-          %h3.head__title 商品一覧
+          %h3.head__title 新規商品一覧
       .pickupItem__box__lists
-        = link_to "#" do
+        - @items.each do |item|
           %figure.pickupItem__box__lists__list
             .pickupItem__box__lists__list__image
-              = image_tag "material/item01.png"
+              -item.images.each do |image|
+                = image_tag image.picture
             .pickupItem__box__lists__list__body
-              .pickupItem__box__lists__list__body__name
-                %h3 product3
-              .pickupItem__box__lists__list__body__details
-                %ul                
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeicon 0
-                %p (税込)
-        =link_to "#" do
-          %figure.pickupItem__box__lists__list
-            .pickupItem__box__lists__list__image
-              = image_tag "material/item02.png"
-            .pickupItem__box__lists__list__body
-              .pickupItem__box__lists__list__body__name
-              %h3 product2
+              %h3.pickupItem__box__lists__list__body__name
+                = item.name
               .pickupItem__box__lists__list__body__details
                 %ul
-                  %li 20000円
+                  %li
+                    = item.price
+                    = "円"
                   %li
                     %i.fa.fa-star.likeicon 0
                 %p (税込)
-        = link_to "#" do
-          %figure.pickupItem__box__lists__list
-            .pickupItem__box__lists__list__image
-              = image_tag "material/item03.png"
-            .pickupItem__box__lists__list__body
-              .pickupItem__box__lists__list__body__name
-              %h3 product1
-              .pickupItem__box__lists__list__body__details
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeicon 0
-                %p (税込)
-            
+                - if item.stock == 1
+                  %p2.pickupItem__box__lists__list__body__details__soldout Sold Out
+
+
+
 
   .pickupItem
     %h2.text ピックアップアイテム
@@ -182,7 +163,7 @@
                   %li
                     %i.fa.fa-star.likeicon 0
                 %p (税込)
-        
+
         
         = link_to "#" do
           %figure.pickupItem__box__lists__list
