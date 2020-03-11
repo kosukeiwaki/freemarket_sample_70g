@@ -29,54 +29,30 @@ ActiveRecord::Schema.define(version: 2020_03_11_071134) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "item_category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "picture", null: false
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "price", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.integer "price"
+    t.string "size"
     t.string "brand"
-    t.integer "status", null: false
-    t.integer "fee", null: false
-    t.string "region", null: false
-    t.integer "shipping_date", null: false
+    t.integer "status"
+    t.integer "fee"
+    t.string "region"
+    t.integer "shipping_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "detail"
-    t.bigint "user_id"
     t.integer "prefecture_id"
+    t.bigint "user_id"
     t.integer "stock"
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "items_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_categories_on_category_id"
-    t.index ["item_id"], name: "index_items_categories_on_item_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +76,4 @@ ActiveRecord::Schema.define(version: 2020_03_11_071134) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
-  add_foreign_key "items_categories", "categories"
-  add_foreign_key "items_categories", "items"
 end
