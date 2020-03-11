@@ -45,6 +45,11 @@ describe Item do
       expect(item.errors[:prefecture_id]).to include('が入力されていません')
     end
 
+    it "enter a non-integer number" do
+      item = build(:item, price: "0.1")
+      item.valid?
+      expect(item.errors[:price]).to include('整数の数字を入力してください')
+    end
 
   end
 end
