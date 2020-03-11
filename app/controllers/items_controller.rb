@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :set_item
+
   def index
     @items = Item.all
   end
 
   def show
-    @item = Item.find(params[:id])
     @category = Category.find(params[:id])
-
 
   end
 
@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
     if @card.blank?
       redirect_to action: "new"
@@ -37,5 +36,10 @@ class ItemsController < ApplicationController
     end
   end
   
+  private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
 end
