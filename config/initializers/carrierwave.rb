@@ -2,7 +2,7 @@ require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
-if Rails.env.production?
+# if Rails.env.production?
 CarrierWave.configure do |config|
   config.cache_dir = "#{Rails.root}/tmp/uploads"
   config.storage = :fog
@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key], 
     region: 'ap-northeast-1'
   }
-  config.fog_directory  = 'freemarket70g'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket70g'
+  config.fog_directory  = 'freemarket70'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket70'
 end
-end
+# end
