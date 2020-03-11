@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, :detail, presence: { message: 'が入力されていません' }
   validates :price,  numericality: { only_integer: true ,message: '整数の数字を入力してください'}
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :images
