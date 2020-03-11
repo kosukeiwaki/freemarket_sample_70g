@@ -4,12 +4,14 @@
 @import "font-awesome";	@import "font-awesome";
 @import "modules/footer";
 @import "modules/header";
-@import "modules/new";
+@import "item/new";
 @import "modules/index";
 @import "modules/show";
 @import "modules/form";
 @import "user/show";
-@import "show";
+@import "item/show";
+@import "item/confirm";
+
 
 *{
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
