@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
-                    name="product[images_attributes][${index}][picture]"
+                    name="item[images_attributes][${index}][picture]"
                     id="product_images_attributes_${index}_picture"><br>
                     <div class="js-remove">削除</div>
                   </div>`;
