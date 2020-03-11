@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item
+
+  before_action :set_message, only: [:show, :confirm]
 
   def index
     @items = Item.all
@@ -7,7 +8,6 @@ class ItemsController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-
   end
 
   def new
