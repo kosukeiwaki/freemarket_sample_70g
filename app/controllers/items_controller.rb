@@ -12,9 +12,20 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.images.new
   end
 
   def create
+    @item = Item.new(item_params)
+
+    if @item.save
+      @item.region = @item.prefecture.name
+      @item.stock = 0  
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -42,5 +53,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 
 end
