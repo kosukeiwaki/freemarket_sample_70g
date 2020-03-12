@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_message, only: [:show, :confirm]
 
   def index
-    @items = Item.all
+    @images = Image.all
+    @items = Item.all.order("id DESC").page(params[:page]).per(3)
   end
 
   def show

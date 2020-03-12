@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_09_054806) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip", null: false
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_054806) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
+
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_054806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -63,6 +67,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_054806) do
     t.string "shipping_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.integer "stock"
+
     t.text "detail"
     t.bigint "user_id"
     t.integer "prefecture"
@@ -76,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_054806) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_categories_on_category_id"
     t.index ["item_id"], name: "index_items_categories_on_item_id"
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,7 +106,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_054806) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+
   add_foreign_key "items", "users"
   add_foreign_key "items_categories", "categories"
   add_foreign_key "items_categories", "items"
+
 end
