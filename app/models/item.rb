@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
 
   def when_item_sold_out(item)
-    if item.blank?
+    if item.stock == 1
       "売り切れです"
     # else 
     #   # item.image

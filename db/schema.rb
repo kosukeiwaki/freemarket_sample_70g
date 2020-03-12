@@ -12,6 +12,8 @@
 
 
 
+
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip", null: false
     t.string "prefecture", null: false
@@ -44,7 +46,11 @@
     t.integer "shipping_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.integer "stock"
+
     t.text "detail"
+
 
   end
 
@@ -68,6 +74,8 @@
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+
   add_foreign_key "items", "users"
+
 
 end

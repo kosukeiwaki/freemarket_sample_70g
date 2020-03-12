@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
 
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
