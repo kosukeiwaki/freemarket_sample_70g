@@ -10,19 +10,19 @@
             %ul
               %li.mainImage 
                 - @item.images.each do |image|
-                  = image_tag image.picture, size:"560x346"
+                  -# = image_tag image.picture, size:"560x346"
           .itemBox2__body__sub
             %ul.subImage
               - @item.images.each do |image|
                 %li
-                  = image_tag image.picture, size:"140x87"
+                  -# = image_tag image.picture, size:"140x87"
           .itemBox2__price
             %span ¥#{@item.price}
             .itemBox2__price--detail
               %span （税込）送料込み
-          - unless user_signed_in? && current_user.id == @user.id
-            .itemBuyBtn 
-              = link_to "購入画面に進む", "#", class:"buyBtn"
+          -# - unless user_signed_in? && current_user.id == @user.id
+          -#   .itemBuyBtn 
+          -#     = link_to "購入画面に進む", "#", class:"buyBtn"
         
           .itemDetail
             = @item.detail
@@ -73,12 +73,12 @@
                   = icon('fa fa-flag fa-xs', class: 'flagIcon')
                   %p.textReport 不適切な商品の通報
 
-        - if user_signed_in? && current_user.id == @user.id
-          .editBox
-            = link_to "商品の編集", "#", class:"itemEditBtn"
-            %p.or or
-            = link_to "出品の一旦停止をする", "#", class:"itemStopBtn"
-            = link_to "この商品を削除する", "#", class:"itemDestroyBtn"            
+        -# - if user_signed_in? && current_user.id == @user.id
+        -#   .editBox
+        -#     = link_to "商品の編集", "#", class:"itemEditBtn"
+        -#     %p.or or
+        -#     = link_to "出品の一旦停止をする", "#", class:"itemStopBtn"
+        -#     = link_to "この商品を削除する", "#", class:"itemDestroyBtn"            
         .commentBox
           %ul.commentContents
             = form_for "#" do |f|
