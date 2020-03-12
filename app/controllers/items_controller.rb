@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.create(item_params)
       @item.region = @item.prefecture.name
       @item.stock = 0  
 
