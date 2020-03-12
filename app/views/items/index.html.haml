@@ -111,8 +111,8 @@
         - @items.each do |item|
           %figure.pickupItem__box__lists__list
             .pickupItem__box__lists__list__image
-              -item.images.each do |image|
-                = image_tag image.picture
+              -# -item.images.each do |image|
+              -#   = image_tag image.picture
             .pickupItem__box__lists__list__body
               %h3.pickupItem__box__lists__list__body__name
                 = item.name
@@ -181,7 +181,7 @@
 
 
 
-= link_to new_item_path do
+= link_to "#" do
   %fugure.exhibitionBtn
     %span.text 出品する
     .exhibitionBtn_icon

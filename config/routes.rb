@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
+  resources :users do
+    resources :items
+  end
 
 
   resources :card, only: [:new, :show] do
