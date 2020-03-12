@@ -3,9 +3,9 @@ class CardController < ApplicationController
   require "payjp"
   before_action :set_card
 
-  # def new
-  #   card = Card.new
-  # end
+  def new
+    card = Card.new
+  end
 
   def pay 
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_ACCESS_KEY]

@@ -22,13 +22,11 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:id])
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_ACCESS_KEY]
     Payjp::Charge.create(
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
+    :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     :customer => @card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
-  redirect_to  user_path(current_user)#完了画面に移動
-  flash[:notice]="購入が完了しました"
-  @item.stock = 1
+  redirect_to action: 'done' #完了画面に移動
   end
 end
 
