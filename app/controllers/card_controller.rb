@@ -5,6 +5,9 @@ class CardController < ApplicationController
 
   def new
     card = Card.new
+    if @card.present?
+      redirect_to action: "show"
+    end
   end
 
   def pay 
