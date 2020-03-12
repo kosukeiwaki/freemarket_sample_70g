@@ -12,12 +12,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(item_params)
+    @item = Item.new
     @item.images.new
   end
 
   def create
-    # @item = Item.new(item_params)
+    @item = Item.new(item_params)
       @item.region = @item.prefecture.name
       @item.stock = 0  
 
