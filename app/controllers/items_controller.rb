@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+
   before_action :set_item, only: [:show]
 
   def index
@@ -8,7 +9,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+
     # @category = Category.find(params[:id])
+
   end
 
   def new
