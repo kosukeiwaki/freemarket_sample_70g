@@ -1,91 +1,91 @@
 = render "shared/header"
-.sign--page
-  .sign
-    .sign__container
-      .sign__container--title
-        %h2 住所情報登録
-      .sign__container--form
-        = form_for @address do |f| 
-          = render "devise/shared/error_messages", resource: @address
+  .sign--page
+    .sign
+      .sign__container
+        .sign__container--title
+          %h2 住所情報登録
+        .sign__container--form
+          = form_for @address do |f| 
+            = render "devise/shared/error_messages", resource: @address
 
 
-          %p.sign__container--form--text 送付先氏名
+            %p.sign__container--form--text 送付先氏名
 
 
-          .name__field
-            .field--name
+            .name__field
+              .field--name
+                .field-label
+                  = f.label :苗字
+                  %span.red 必須
+                .field-input
+                  = f.text_field :lastname, autofocus: true, placeholder: "例)新田", class: "name__textarea"
+
+              .field--name
+                .field-label
+                  = f.label :名前
+                  %span.red 必須
+                .field-input
+                  = f.text_field :firstname, autofocus: true, placeholder: "例)仁志", class: "name__textarea"
+
+            .name__field
+              .field--name
+                .field-label
+                  = f.label :苗字（かな）
+                  %span.red 必須
+                .field-input
+                  = f.text_field :lastname_kana, autofocus: true, placeholder: "例)にった", class: "name__textarea"
+
+              .field--name
+                .field-label
+                  = f.label :名前（かな）
+                  %span.red 必須
+                .field-input
+                  = f.text_field :firstname_kana, autofocus: true, placeholder: "例)ひとし", class: "name__textarea"
+
+
+            %p.sign__container--form--text 送付先住所
+            .field
               .field-label
-                = f.label :苗字
+                = f.label :郵便番号
                 %span.red 必須
               .field-input
-                = f.text_field :lastname, autofocus: true, placeholder: "例)新田", class: "name__textarea"
+                = f.text_field :zip, autofocus: true, class: "textarea"
 
-            .field--name
+            .field
               .field-label
-                = f.label :名前
+                = f.label :都道府県
                 %span.red 必須
               .field-input
-                = f.text_field :firstname, autofocus: true, placeholder: "例)仁志", class: "name__textarea"
+                = f.text_field :prefecture, autofocus: true, class: "textarea"
 
-          .name__field
-            .field--name
+            .field
               .field-label
-                = f.label :苗字（かな）
+                = f.label :市区町村
                 %span.red 必須
               .field-input
-                = f.text_field :lastname_kana, autofocus: true, placeholder: "例)にった", class: "name__textarea"
+                = f.text_field :city, autofocus: true, class: "textarea"
 
-            .field--name
+            .field
               .field-label
-                = f.label :名前（かな）
-                %span.red 必須
+                = f.label :番地
               .field-input
-                = f.text_field :firstname_kana, autofocus: true, placeholder: "例)ひとし", class: "name__textarea"
+                = f.text_field :block, autofocus: true, class: "textarea"
 
+            .field
+              .field-label
+                = f.label :マンション名、部屋番号
+              .field-input
+                = f.text_field :building, autofocus: true, class: "textarea"
 
-          %p.sign__container--form--text 送付先住所
-          .field
-            .field-label
-              = f.label :郵便番号
-              %span.red 必須
-            .field-input
-              = f.text_field :zip, autofocus: true, class: "textarea"
-
-          .field
-            .field-label
-              = f.label :都道府県
-              %span.red 必須
-            .field-input
-              = f.text_field :prefecture, autofocus: true, class: "textarea"
-
-          .field
-            .field-label
-              = f.label :市区町村
-              %span.red 必須
-            .field-input
-              = f.text_field :city, autofocus: true, class: "textarea"
-
-          .field
-            .field-label
-              = f.label :番地
-            .field-input
-              = f.text_field :block, autofocus: true, class: "textarea"
-
-          .field
-            .field-label
-              = f.label :マンション名、部屋番号
-            .field-input
-              = f.text_field :building, autofocus: true, class: "textarea"
-
-          .field
-            .field-label
-              = f.label :お届け先電話番号
-            .field-input
-              = f.text_field :phone_number, autofocus: true, class: "textarea"
+            .field
+              .field-label
+                = f.label :お届け先電話番号
+              .field-input
+                = f.text_field :phone_number, autofocus: true, class: "textarea"
 
 
 
-          .actions
-            = f.submit "登録",class: 'regist--btn'
+            .actions
+              = f.submit "登録",class: 'regist--btn'
 
 = render "shared/footer"
