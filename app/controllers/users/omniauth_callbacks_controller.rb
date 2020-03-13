@@ -1,15 +1,15 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
+
   def facebook
     authorization
   end
 
-  def google_oauth2
-    authorization
-  end
+  # def google_oauth2
+  #   authorization
+  # end
 
   def failure
-    redirect_to root_path
+    redirect_to new_session_path(resource_name)
   end
 
   private
