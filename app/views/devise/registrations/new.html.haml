@@ -81,6 +81,8 @@
               = f.submit "次へ", class: 'regist--btn'
               %h2 アカウントをお持ちの方はこちら
             = link_to "ログイン", new_session_path(resource_name), class: "login--btn"
+            = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "login--btn"
+
 = render "shared/footer"
 
 
