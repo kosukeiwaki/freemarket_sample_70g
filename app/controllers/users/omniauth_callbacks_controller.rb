@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def failure
-    redirect_to new_session_path(resource_name)
+    redirect_to new_registration_path(resource_name)
   end
 
   private

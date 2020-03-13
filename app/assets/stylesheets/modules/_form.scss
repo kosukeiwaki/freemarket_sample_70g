@@ -91,6 +91,7 @@
         line-height: 100px;
         font-size: 22px;
         text-align: center;
+        margin: 0 auto;
       }
       &--form{
         padding: 30px 140px;
@@ -116,8 +117,16 @@
 
 .login{
   &--btn{
-    background-color: #0f0;
-    color: black;
+    background-color: #093;
+    color: #fff;
+    @include btn;
+  }
+}
+
+.facebook{
+  &--btn{
+    background-color: #06f;
+    color: #fff;
     @include btn;
   }
 }
