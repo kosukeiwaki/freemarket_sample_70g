@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   resources :items do
     member do
-      resources :purchase, only: [:index] do
+      resources :purchase, only: [:index, :update] do
         collection do
           get 'index', to: 'purchase#index'
           post 'pay', to: 'purchase#pay'
