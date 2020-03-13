@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
     t.datetime "updated_at", null: false
     t.text "detail"
     t.integer "prefecture_id"
+    t.bigint "buyer_id"
+    t.bigint "saler_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["saler_id"], name: "index_items_on_saler_id"
   end
 
   create_table "items_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "items", column: "buyer_id"
+  add_foreign_key "items", "items", column: "saler_id"
   add_foreign_key "items_categories", "categories"
   add_foreign_key "items_categories", "items"
 end
