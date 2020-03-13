@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_063936) do
     t.text "detail"
     t.bigint "user_id"
     t.integer "prefecture_id"
-    t.integer "stock"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
