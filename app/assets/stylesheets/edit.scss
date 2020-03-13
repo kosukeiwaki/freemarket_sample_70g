@@ -1,0 +1,43 @@
+$backGroundColor: #f8f8f8;
+$innerColor: white;
+.itemEditPage {
+  background-color: $backGroundColor;
+  .itemEditContents {
+    width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    .content {
+      background-color: $innerColor;
+      .content__head {
+        // background-color: $innerColor;
+        padding: 32px 16px;      
+        border-bottom: solid 1px black;
+        .contentHead--name {
+          font-size: 22px;
+          text-align: center;
+        }
+      }
+      .content__form {
+
+      }
+      .content__bottom {
+        text-align: center;
+        .editRunBtn {
+          background-color: red;
+          @include editBoxBtn;
+          font-size: 24px;
+          line-height: 60px;
+          text-align: center;
+          }
+        .editCancelBtn {
+          background-color: lightgray;
+          @include editBoxBtn;
+          line-height: 60px;
+          text-align: center;
+          display: inline-block;
+          padding: 0 60px;
+        }
+      }
+    }
+  }
+}

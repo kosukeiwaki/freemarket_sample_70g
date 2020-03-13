@@ -1,0 +1,46 @@
+= render "shared/header"
+%main.itemEditPage
+  .itemEditContents
+    .content
+      .content__head 
+        %h2.content__head--name 商品の情報を入力
+
+      .content__form
+        = form_for @item do |f|
+          .content__form--image 
+            %h2 商品画像
+            %p 最大10枚までアップロードできます
+          .content__form--name 
+            %h2 商品名
+            = f.text_field :name
+            %h2 商品の説明
+            = f.text_area :detail
+          .content__form--detail
+            %h2 商品の詳細
+            %h2 カテゴリー
+            = f.text_field :name
+            = f.text_field :name
+            = f.text_field :name
+            %h2 ブランド
+            = f.text_field :name
+            %h2 商品の状態
+            = f.text_field :status
+          .content__form--fee
+            %h2 配送料の負担
+            = f.text_field :fee
+            %h2 配送の方法
+            = f.text_field :name
+            %h2 発送元の地域
+            = f.text_field :region
+            %h2 発送までの日数
+            = f.text_field :shipping_date
+          .content__form--price
+            %h2 販売価格(300~9,999,999)
+            %h2 価格
+            = f.text_field :price 
+
+
+      .content__bottom
+        = link_to "変更する", "#", class:"editRunBtn"
+        = link_to "キャンセル", "#", class:"editCancelBtn"
+

@@ -25,12 +25,12 @@
           font-weight: bold;
           font-size: 24px;
         }
-        &__main {
+        &__body__main {
           margin-top: 16px;
           ul {
             display: flex;
             position: relative;
-            li {
+            .mainImage {
               display: flex;
               width: 560px;
               align-items: center;
