@@ -112,8 +112,7 @@
           = link_to item_path(item.id), method: :get do
             %figure.pickupItem__box__lists__list
               .pickupItem__box__lists__list__image
-                - item.images.each do |image|
-                  = image_tag image.picture_url
+                = image_tag item.images[0].picture_url
               .pickupItem__box__lists__list__body
                 %h3.pickupItem__box__lists__list__body__name
                   = item.name
