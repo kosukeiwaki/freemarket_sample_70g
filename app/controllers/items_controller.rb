@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @category = Category.find(params[:id])
+    # @item.order("id DESC").page(params[:page]).per(1)
   end
 
   def new

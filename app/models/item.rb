@@ -3,6 +3,7 @@ class Item < ApplicationRecord
     validates :price,  numericality: { only_integer: true ,message: '整数の数字を入力してください'}
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :prefecture
+    belongs_to :user
     has_many :images
     accepts_nested_attributes_for :images, allow_destroy: true
 

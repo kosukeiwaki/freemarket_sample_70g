@@ -25,12 +25,12 @@
           font-weight: bold;
           font-size: 24px;
         }
-        &__main {
+        &__body__main {
           margin-top: 16px;
-          ul {
+          .mainImageBox {
             display: flex;
             position: relative;
-            li {
+            .mainImage {
               display: flex;
               width: 560px;
               align-items: center;
@@ -45,14 +45,16 @@
         &__body__sub {
           ul {
             display: flex;
-            justify-content: center;
+            justify-content: left;
             margin-top: 10px;
+            overflow: scroll;
             li {
               width: 35%;
               margin: 0 10px 0 0;
               img {
                 object-fit: cover;
                 height: 87px;
+                
                 }
               }
           }
