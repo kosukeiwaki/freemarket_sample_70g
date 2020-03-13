@@ -8,7 +8,8 @@
       %h2 購入内容の確認
     .confirmBox__body
       .confirmBox__body__left
-        = image_tag 'material/logo/logo.png', size: "100x100"
+        - @item.images.each do |image|
+          = image_tag image.picture_url, size: "100x100"
       .confirmBox__body__right
         .conformname
           = @item.name
@@ -46,13 +47,14 @@
         %p 兵庫県神戸市北区鈴蘭台南町7丁目
         %p 岩城 晃輔
     .sure
-      - if @default_card_information.blank?
-        %br
-      = form_tag(action: :pay, method: :post) do
-        %button.submit-test.redButtom 購入する
-      .sure__box
-        %p アプリをお持ちで無い方は下記よりダウンロードできます。
-        = image_tag "material/app-store-image.svg", size: "130x40", alt: "test"
-        = image_tag "material/google-play-image.svg", size: "130x40", alt: "test"
+      - if @item.buyer_id.blank?
+        - if @default_card_information.blank?
+          %br
+        = form_tag(action: :pay, method: :post) do
+          %button.submit-test.redButtom 購入する
+        .sure__box
+          %p アプリをお持ちで無い方は下記よりダウンロードできます。
+          = image_tag "material/app-store-image.svg", size: "130x40", alt: "test"
+          = image_tag "material/google-play-image.svg", size: "130x40", alt: "test"
 
 = render "shared/footer"

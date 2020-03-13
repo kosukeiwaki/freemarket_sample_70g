@@ -64,11 +64,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "detail"
-
-    t.integer "prefecture"
-    t.bigint "buyer_id"
+    t.integer "prefecture_id"
     t.bigint "saler_id"
-    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["saler_id"], name: "index_items_on_saler_id"
   end
 
@@ -87,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
     t.string "nickname", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.string "birthday", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
