@@ -1,3 +1,6 @@
+= render "shared/header"
+
+.main2
 .signin--page
   .sign
     .sign__container
@@ -29,3 +32,4 @@
             %h2 アカウントをお持ちでない方はこちら
         = link_to "新規登録", new_registration_path(resource_name), class: "regist--btn"
 
+= render "shared/footer"
