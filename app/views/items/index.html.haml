@@ -105,14 +105,14 @@
     %h2.text ピックアップアイテム
     .pickupItem__box
       .pickupItem__box__head
-        = link_to"#" do
+        = link_to "#" do
           %h3.head__title 新規商品一覧
       .pickupItem__box__lists
         - @items.each do |item|
           %figure.pickupItem__box__lists__list
             .pickupItem__box__lists__list__image
-              -# -item.images.each do |image|
-              -#   = image_tag image.picture
+              - item.images.each do |image|
+                = image_tag image.picture_url
             .pickupItem__box__lists__list__body
               %h3.pickupItem__box__lists__list__body__name
                 = item.name
@@ -124,7 +124,7 @@
                   %li
                     %i.fa.fa-star.likeicon 0
                 %p (税込)
-                - if item.stock == 1
+                - if item.buyer_id.present?
                   %p2.pickupItem__box__lists__list__body__details__soldout Sold Out
 
 
@@ -134,7 +134,7 @@
     %h2.text ピックアップアイテム
     .pickupItem__box
       .pickupItem__box__head
-        = link_to"#" do
+        = link_to "#" do
           %h3.head__title 商品一覧
       .pickupItem__box__lists
         = link_to "#" do
@@ -181,7 +181,7 @@
 
 
 
-= link_to "#" do
+= link_to new_item_path do
   %fugure.exhibitionBtn
     %span.text 出品する
     .exhibitionBtn_icon

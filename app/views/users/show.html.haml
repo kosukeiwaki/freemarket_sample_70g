@@ -10,15 +10,6 @@
             =link_to "マイページ", user_path(current_user.id)
         %tr
           %td
-            =link_to 'いいねした商品'
-        %tr
-          %td
-            %ul
-              %li イーチぶんでいいね
-              %li した商品を
-              %li 上から3つ表示
-        %tr
-          %td
             =link_to '出品した商品'
         %tr
           %td
@@ -56,35 +47,23 @@
         出品履歴
       .userBox__items
         .userBox__history__title
-        -# - @items.each do |item| 
-          .itemHeader
-            -# = item.name
-            .time
-              -# = recipe.created_at.strftime("%Y年%m月%d日")
-          .itemDetail
-            .itemImage
-              -# = image_tag item.image, size: "300x180" if item.image.present?
-            .itemBox
-              .itemTitle
-                料理名：
-                -# = item.title
-              .itemmemory
-                思い出：
-                -# = item.text             
-              .itemshow
-                -# = link_to '詳しく見る', "/items/#{item.id}", method: :get
-
-    .rightBottom
-      .favorite
-        いいねした商品
-      .itemBox
-      -# %ul 
-      -#   -if @likes.present?
-      -#     - @likes.each do |like|
-      -#       - recipe = Recipe.find_by(id: like.recipe_id)
-      -#       %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
-      -#   -else
-          no favorite
+          -# - buyed_items.each do |item| 
+            .itemHeader
+              = item.name
+              .time
+                = recipe.created_at.strftime("%Y年%m月%d日")
+            .itemDetail
+              .itemImage
+                = image_tag item.image, size: "300x180" if item.image.present?
+              .itemBox
+                .itemTitle
+                  料理名：
+                  = item.title
+                .itemmemory
+                  思い出：
+                  = item.text             
+                .itemshow
+                  = link_to '詳しく見る', "/items/#{item.id}", method: :get
 
       
 = render "shared/footer"
