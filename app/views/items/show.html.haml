@@ -10,12 +10,12 @@
             %ul
               %li.mainImage 
                 - @item.images.each do |image|
-                  -# = image_tag image.picture, size:"560x346"
+                  = image_tag image.picture.url, size:"560x346"
           .itemBox2__body__sub
             %ul.subImage
               - @item.images.each do |image|
                 %li
-                  -# = image_tag image.picture, size:"140x87"
+                  = image_tag image.picture.url, size:"140x87"
           .itemBox2__price
             %span ¥#{@item.price}
             .itemBox2__price--detail
@@ -78,12 +78,12 @@
 
           -# 今後必要なので残しております。
 
-        -# - if user_signed_in? && current_user.id == @user.id
-        -#   .editBox
-        -#     = link_to "商品の編集", "#", class:"itemEditBtn"
-        -#     %p.or or
-        -#     = link_to "出品の一旦停止をする", "#", class:"itemStopBtn"
-        -#     = link_to "この商品を削除する", "#", class:"itemDestroyBtn"            
+        - if user_signed_in? && current_user.id == @item.saler_id
+          .editBox
+            = link_to "商品の編集", edit_item_path(@item.id), class:"itemEditBtn"
+            %p.or or
+            = link_to "出品の一旦停止をする", "#", class:"itemStopBtn"
+            = link_to "この商品を削除する", "#", class:"itemDestroyBtn"            
         .commentBox
           %ul.commentContents
             = form_for "#" do |f|
