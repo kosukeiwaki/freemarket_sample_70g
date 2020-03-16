@@ -172,6 +172,14 @@ $mainback:#f8f8f8;
   padding: 20px 30px;
   margin: 0 auto;
   width:50vw;
+  &__title {
+    border-bottom: 1px solid rgb(170, 166, 166);
+    font-size: 22px;
+    padding: 32px 16px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
 
   .imageForm{
     padding: 40px;
