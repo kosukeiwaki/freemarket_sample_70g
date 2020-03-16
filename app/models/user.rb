@@ -13,10 +13,26 @@ class User < ApplicationRecord
   }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+  has_many :sns_credentials
+
   has_one :address
 
   accepts_nested_attributes_for :address
+
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+    if user.persisted?
+      sns.user = user
+      sns.save
+    end
+    { user: user, sns: sns }
+  end
 
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
