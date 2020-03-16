@@ -26,10 +26,18 @@
                 = f.label :ログインしたままにする
               
 
+
+          .login
+            = f.submit "ログイン",class: 'login--btn'
+            = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"facebook--btn"
+            %br
+            %h2 アカウントをお持ちでない方はこちら
+        = link_to "新規登録", new_registration_path(resource_name), class: "regist--btn"
             .login
               = f.submit "ログイン",class: 'login--btn'
               %br
               %h2 アカウントをお持ちでない方はこちら
           = link_to "新規登録", new_registration_path(resource_name), class: "regist--btn"
+
 
 = render "shared/footer"
