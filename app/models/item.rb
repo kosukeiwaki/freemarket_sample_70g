@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
-  has_many :images
+  # has_many :images
   has_many :items_categories
   has_many :categories, through: :items_categories
     validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, :detail, presence: { message: 'が入力されていません' }
