@@ -22,9 +22,9 @@
 
               -# 今後必要な為に残しています。
 
-          -# - unless user_signed_in? && current_user.id == @user.id
-          -#   .itemBuyBtn 
-          -#     = link_to "購入画面に進む", "#", class:"buyBtn"
+          - if user_signed_in? && current_user.id != @item.saler_id
+            .itemBuyBtn 
+              = link_to "購入画面に進む", purchase_index_path(@item.id), class:"buyBtn"
         
           .itemDetail
             = @item.detail
