@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
     t.string "nickname", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.string "birthday", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "items", column: "buyer_id"
+  add_foreign_key "items", "items", column: "saler_id"
   add_foreign_key "items_categories", "categories"
   add_foreign_key "items_categories", "items"
 end
