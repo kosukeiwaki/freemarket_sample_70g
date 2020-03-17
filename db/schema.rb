@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_034645) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "items", column: "buyer_id"
-  add_foreign_key "items", "items", column: "saler_id"
   add_foreign_key "items_categories", "categories"
   add_foreign_key "items_categories", "items"
   add_foreign_key "sns_credentials", "users"
