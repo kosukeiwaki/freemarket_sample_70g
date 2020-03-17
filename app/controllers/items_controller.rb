@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @images = Image.all
@@ -43,6 +43,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if user_signed_in? && current_user.id == @item.saler_id && @item.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   private
