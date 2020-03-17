@@ -4,22 +4,23 @@
   .logo
   = image_tag 'material/logo/logo.png', size: "180x70",class:'logo2'
   .itemBox
-    .imageForm
     = form_for @item, url: {action: "create"} do |f|
       - @item.errors.full_messages.each do |message|
         = message
-      .imageForm__top
-        =f.label :出品画像 
-        %span.red 必須
-      .imageForm__text
-        %p 最大10枚までアップロードできます。
-      .imageForm__form
-        #image-box
-          = f.fields_for :images do |i|
-            .js-file_group{"data-index" => "#{i.index}"}
-              = i.file_field :picture, class: "js-file"
-              %br
-              .js-remove 削除
+      .imageForm
+
+        .imageForm__top
+          =f.label :出品画像 
+          %span.red 必須
+        .imageForm__text
+          %p 最大10枚までアップロードできます。
+        .imageForm__form
+          #image-box
+            = f.fields_for :images do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+                = i.file_field :picture, class: "js-file"
+                %br
+                .js-remove 削除
 
       .name
         .name__top
@@ -82,7 +83,7 @@
             =f.label :発送元の地域
             %span.red 必須
           .region__form
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
               
         .date
           .date__name
