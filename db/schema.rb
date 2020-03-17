@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_032403) do
     t.datetime "updated_at", null: false
     t.text "detail"
     t.integer "prefecture_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
     t.bigint "buyer_id"
     t.bigint "saler_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
