@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @images = Image.all
@@ -35,6 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else 
+      render :edit
+    end
   end
 
   def destroy
@@ -51,7 +56,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id,
-                                 :status, :fee, :shipping_date, images_attributes: [:picture]).merge(saler_id: current_user.id)
+                                 :status, :fee, :shipping_date, images_attributes: [:picture, :_destroy, :id]).merge(saler_id: current_user.id)
   end
 
 end
