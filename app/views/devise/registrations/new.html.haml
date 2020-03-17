@@ -7,6 +7,7 @@
         .sign__container--title
           %h2 新規登録
         .sign__container--form
+          = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "facebook--btn"
           = form_for(@user, url: user_registration_path) do |f|
             = devise_error_messages!
             .field
