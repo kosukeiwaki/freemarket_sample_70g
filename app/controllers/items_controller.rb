@@ -18,11 +18,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
       #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def get_category_children
