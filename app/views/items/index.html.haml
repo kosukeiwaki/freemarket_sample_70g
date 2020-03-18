@@ -105,27 +105,27 @@
     %h2.text ピックアップアイテム
     .pickupItem__box
       .pickupItem__box__head
-        = link_to "#" do
+        = link_to "" do
           %h3.head__title 新規商品一覧
       .pickupItem__box__lists
         - @items.each do |item|
-          %figure.pickupItem__box__lists__list
-            .pickupItem__box__lists__list__image
-              - item.images.each do |image|
-                = image_tag image.picture_url
-            .pickupItem__box__lists__list__body
-              %h3.pickupItem__box__lists__list__body__name
-                = item.name
-              .pickupItem__box__lists__list__body__details
-                %ul
-                  %li
-                    = item.price
-                    = "円"
-                  %li
-                    %i.fa.fa-star.likeicon 0
-                %p (税込)
-                - if item.buyer_id.present?
-                  %p2.pickupItem__box__lists__list__body__details__soldout Sold Out
+          = link_to item_path(item.id), method: :get do
+            %figure.pickupItem__box__lists__list
+              .pickupItem__box__lists__list__image
+                = image_tag item.images[0].picture_url
+              .pickupItem__box__lists__list__body
+                %h3.pickupItem__box__lists__list__body__name
+                  = item.name
+                .pickupItem__box__lists__list__body__details
+                  %ul
+                    %li
+                      = item.price
+                      = "円"
+                    %li
+                      %i.fa.fa-star.likeicon 0
+                  %p (税込)
+                  - if item.buyer_id.present?
+                    %p2.pickupItem__box__lists__list__body__details__soldout Sold Out
 
 
 
@@ -189,15 +189,3 @@
 
 
 = render "shared/footer"
-
-
-
-
-
-  
-
-
-
-
-
-
