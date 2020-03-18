@@ -9,9 +9,25 @@
         =icon('fas','search')
 
   .bottom
-    .bottom__left
-      =link_to "カテゴリー"
-      =link_to "ブランド", destroy_user_session_path,method: :delete
+    .header-wrapper--bottom
+      %nav.header-wrapper--bottom--left
+        %ul.search-navs
+          %li.search-navs__unit.category
+            %h2#category-btn
+              カテゴリーから探す
+
+            .category__box
+              %ul.category__box__parent#parent_ul.hidden-parent
+                - Category.where('ancestry IS NULL').each do |cat|
+                  %li.category__box__parent--list
+                    %h3
+                      = link_to "#{cat.name}", "/category/#{cat.id}","data-id": "#{cat.id}",class: "parent-category--list--item"
+              %ul.category__box__child#child_ul.hidden-child
+
+              %ul.category__box__grandchild#grandchild_ul.hidden-grandchild
+        
+      
+        -# =link_to "ブランド", destroy_user_session_path,method: :delete
     .bottom__right
       - if user_signed_in?
         =link_to "マイページ", user_path(current_user.id)
