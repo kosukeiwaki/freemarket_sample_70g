@@ -39,18 +39,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.region = @item.prefecture.name
 
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
-
-      # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-
-      # @category_grandchildren = Category.find("#{params[:child_id]}").children
-
-
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       render :new
@@ -73,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id,
+    params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id, :category_id,
                                  :status, :fee, :shipping_date, images_attributes: [:picture]).merge(saler_id: current_user.id)
   end
 

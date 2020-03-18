@@ -42,7 +42,7 @@
             %span.listing-default--require 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "cateogry"}
                 %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .bland
           .bland__name
