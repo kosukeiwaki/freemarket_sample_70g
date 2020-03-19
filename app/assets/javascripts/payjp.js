@@ -1,4 +1,4 @@
-document.addEventListener(
+document.addEventListener("turbolinks:load", function(){
   "DOMContentLoaded", e => {
     if (document.getElementById("token_submit") != null) { 
       Payjp.setPublicKey("pk_test_159e4ef18c6c443cb75d5ae1");
@@ -30,4 +30,4 @@ document.addEventListener(
     }
   },
   false
-);
+});
