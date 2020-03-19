@@ -53,7 +53,7 @@
             =f.label :カテゴリー
             %span.red 必須
           .category__form
-            = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "cateogry"}
+            = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
             %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .category__form
             = f.select :category_id, @category_parent_array2, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category2', name: "category"}
