@@ -56,10 +56,10 @@
             = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "cateogry"}
             %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .category__form
-            = f.select :category_id, @category_children, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
+            = f.select :category_id, @category_parent_array2, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category2', name: "category"}
             %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .category__form
-            = f.select :category_id, @category_grandchildren, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
+            = f.select :category_id, @category_parent_array3, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category3', name: "category"}
             %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .bland
           .bland__name

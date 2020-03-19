@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', ()=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][picture]"
-                    id="product_images_attributes_${index}_picture"><br>
+                    id="product_images_attributes_${index}_src"><br>
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;

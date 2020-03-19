@@ -19,7 +19,8 @@ class ItemsController < ApplicationController
     @item.images.new
       #セレクトボックスの初期値設定
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-      @category_parent_array.unshift("---")
+      # @category_child_array = Category.where(ancestry: ).pluck(:name)
+      # @category_parent_array.unshift("---")
   end
 
   def get_category_children
@@ -45,8 +46,11 @@ class ItemsController < ApplicationController
 
   def edit
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array.unshift("---")
-    
+    @category_parent_array.unshift(@item.category.root.name)
+    @category_parent_array2 = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array2.unshift(@item.category.parent.name)
+    @category_parent_array3 = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array3.unshift(@item.category.name)
     
   end
 
