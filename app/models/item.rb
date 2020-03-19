@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User", optional: true
+  # belongs_to :buyer, class_name: "User", optional: true
   belongs_to :category
 
     validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, :detail, presence: { message: 'が入力されていません' }
