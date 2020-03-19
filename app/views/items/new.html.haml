@@ -5,8 +5,11 @@
   = image_tag 'material/logo/logo.png', size: "180x70",class:'logo2'
   .itemBox
     = form_for @item, url: {action: "create"} do |f|
-      - @item.errors.full_messages.each do |message|
-        = message
+      -if @item.errors.any? 
+        .alert
+          %ul
+            - @item.errors.full_messages.each do |message| 
+              %li= message 
       .imageForm
 
         .imageForm__top
