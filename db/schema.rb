@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_034645) do
+
+ActiveRecord::Schema.define(version: 2020_03_18_075312) do
+
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip", null: false
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_034645) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "item_category"
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,8 +70,11 @@ ActiveRecord::Schema.define(version: 2020_03_13_034645) do
     t.integer "prefecture_id"
     t.bigint "buyer_id"
     t.bigint "saler_id"
+    t.bigint "category_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["saler_id"], name: "index_items_on_saler_id"
+
   end
 
   create_table "items_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_034645) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_categories_on_category_id"
     t.index ["item_id"], name: "index_items_categories_on_item_id"
+
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,9 +116,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_034645) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "items", column: "buyer_id"
   add_foreign_key "items", "items", column: "saler_id"
-  add_foreign_key "items_categories", "categories"
-  add_foreign_key "items_categories", "items"
   add_foreign_key "sns_credentials", "users"
 end

@@ -17,14 +17,25 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+      #セレクトボックスの初期値設定
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+  #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
     @item = Item.new(item_params)
     @item.region = @item.prefecture.name
 
-
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       render :new
@@ -57,8 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id,
+    params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id, :category_id,
                                  :status, :fee, :shipping_date, images_attributes: [:picture, :_destroy, :id]).merge(saler_id: current_user.id)
   end
-
 end
