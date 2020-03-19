@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.region = @item.prefecture.name
 
 
     if @item.save
