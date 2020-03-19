@@ -23,8 +23,6 @@
             .itemBox2__price--detail
               %span （税込）送料込み
 
-              -# 今後必要な為に残しています。
-
           - if user_signed_in? && current_user.id != @item.saler_id
             .itemBuyBtn 
               = link_to "購入画面に進む", purchase_index_path(@item.id), class:"buyBtn"
