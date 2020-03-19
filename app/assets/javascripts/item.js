@@ -19,6 +19,8 @@ $(document).on('turbolinks:load', ()=> {
 
   $('.hidden-destroy').hide();
 
+  if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
@@ -43,4 +45,6 @@ $(document).on('turbolinks:load', ()=> {
 
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+
+
 });
