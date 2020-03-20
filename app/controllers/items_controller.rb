@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @favorite = Favorite.new
   end
 
   def new

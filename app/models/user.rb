@@ -37,6 +37,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :favorites, dependent: :destroy
   has_many :favorited_items, through: :favorites, source: :item
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
   
-
 end
