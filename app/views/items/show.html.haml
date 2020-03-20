@@ -73,7 +73,7 @@
               %li.optionalBtnLikebtn
                 = link_to "#", class: "likeBtn" do
                   = icon('fas fa-star fa-xs', class: 'starIcon')
-                  %p.textFavorite お気に入り 0
+                  %p.textFavorite お気に入り  #{@item.favorites.count}
             %ul.optional
               %li.optionalBtn
                 = link_to "#", class: "reportBtn" do

@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :favorite do
-    item { "MyString" }
-    references { "MyString" }
+    item { nil }
     user { nil }
   end
 end
