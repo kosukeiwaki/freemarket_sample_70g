@@ -1,12 +1,8 @@
 class Item < ApplicationRecord
   
   belongs_to :saler, class_name: "User"
-
   belongs_to :buyer, class_name: "User", optional: true
-  # has_many :images
   belongs_to :category
-
-
 
     validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, :detail, presence: { message: 'が入力されていません' }
     validates :price,  numericality: { only_integer: true ,message: '整数の数字を入力してください'}
@@ -14,7 +10,6 @@ class Item < ApplicationRecord
     belongs_to_active_hash :prefecture
     has_many :images, dependent: :destroy
     accepts_nested_attributes_for :images, allow_destroy: true
-
 
     enum status:{
       新品、未使用: 0,
