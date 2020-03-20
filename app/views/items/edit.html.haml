@@ -47,20 +47,15 @@
           = f.text_area :detail, placeholder: "商品の説明を入力", class: "textarea-test"
 
       .detail
-        .category
-          %p.grayP 商品の詳細
-          .category__name
-            =f.label :カテゴリー
-            %span.red 必須
-          .category__form
-            = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-          .category__form
-            = f.select :category_id, @category_parent_array2, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category2', name: "category"}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-          .category__form
-            = f.select :category_id, @category_parent_array3, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category3', name: "category"}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        .listing-form-box
+          .listing-product-detail__category
+            = f.label 'カテゴリー', class: 'listing-default__label'
+            %span.listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
+                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          
         .bland
           .bland__name
             =f.label :ブランド

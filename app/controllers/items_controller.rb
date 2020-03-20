@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-
-
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,9 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
-    # @category = Category.find(params[:id])
-
   end
 
   def new
@@ -46,12 +41,8 @@ class ItemsController < ApplicationController
 
   def edit
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array.unshift(@item.category.root.name)
-    @category_parent_array2 = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array2.unshift(@item.category.parent.name)
-    @category_parent_array3 = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array3.unshift(@item.category.name)
-    
+    @category_parent_array.unshift("---")
+
   end
 
   def update
