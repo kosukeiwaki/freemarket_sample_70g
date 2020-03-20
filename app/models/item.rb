@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
   belongs_to :category
+  has_many   :favorites
+  has_many   :favorited_users, through: :favorites, source: :user
 
     validates :name, :price, :status, :fee, :prefecture_id, :shipping_date, :detail, presence: { message: 'が入力されていません' }
     validates :price,  numericality: { only_integer: true ,message: '整数の数字を入力してください'}

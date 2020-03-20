@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_084457) do
+ActiveRecord::Schema.define(version: 2020_03_20_065430) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip", null: false
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2020_03_19_084457) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item"
+    t.string "references"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.string "picture"
@@ -65,9 +74,9 @@ ActiveRecord::Schema.define(version: 2020_03_19_084457) do
     t.datetime "updated_at", null: false
     t.text "detail"
     t.integer "prefecture_id"
+    t.bigint "saler_id"
     t.bigint "category_id"
     t.string "buyer_id"
-    t.bigint "saler_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["saler_id"], name: "index_items_on_saler_id"
   end
@@ -100,7 +109,9 @@ ActiveRecord::Schema.define(version: 2020_03_19_084457) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "favorites", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "items", column: "saler_id"
   add_foreign_key "sns_credentials", "users"
 end
