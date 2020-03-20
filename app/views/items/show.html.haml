@@ -35,11 +35,15 @@
             %tr
               %th.left-top 出品者 
               %th.right-top 
-                sample user
+                = @item.saler.nickname
             %tr
               %td.left-lists カテゴリー
               %td.right-lists 
-                -# = @category.name
+                = link_to @item.category.root.name,"#" 
+                %br
+                = link_to @item.category.parent.name,"#" 
+                %br
+                = link_to @item.category.name,"#" 
             %tr
               %td.left-lists ブランド
               %td.right-lists 

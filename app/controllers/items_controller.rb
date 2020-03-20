@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-
-
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,9 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
-    # @category = Category.find(params[:id])
-
   end
 
   def new
@@ -19,6 +14,7 @@ class ItemsController < ApplicationController
     @item.images.new
       #セレクトボックスの初期値設定
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array.unshift("---")
   end
 
   def get_category_children
@@ -43,6 +39,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
+
   end
 
   def update
