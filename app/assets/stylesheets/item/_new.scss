@@ -185,13 +185,9 @@ $mainback:#f8f8f8;
     padding: 40px;
     margin: 0 auto;
     &__top{
-      padding: 10px;
       display: flex;
       font-weight: bold;
       font-size: 15px;
-    }
-    &__text{
-      padding: 0 10px;
     }
   }
 }
@@ -213,6 +209,10 @@ $mainback:#f8f8f8;
   }
   &__form{
     padding: 0 10px;
+    width: 100%;
+    textarea{
+      width: 100%;
+    }
   }
 }
 
@@ -235,6 +235,16 @@ $mainback:#f8f8f8;
 }
 
 .bland{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.size{
   @include mainBox();
   &__name{
     @include mainTop();

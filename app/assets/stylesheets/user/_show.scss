@@ -82,7 +82,30 @@
     &__items{
       height: 354px;
       border: solid black 1px;
-
+      .pickupItem__box__lists{
+        width: 500px;
+        margin: 0 auto;
+        padding: 26px 0;
+        display: flex;
+        justify-content: space-around;
+      }
+      .pickupItem__box__lists__list{
+        width: 140px;
+        display: inline-block;
+        background-color: #fff;
+        display: inline-block;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+      .pickupItem__box__lists__list__image{
+        width: 150px;
+        height: 80px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+      }
     }
   }
   .rightBottom{
@@ -100,6 +123,8 @@
     }
   }
 }
+
+
 
 // ここからユーザーのショーページ
 
