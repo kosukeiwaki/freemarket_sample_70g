@@ -71,7 +71,7 @@
           .optionalArea
             %ul
               %li.optionalBtnLikebtn
-                - if current_user.already_liked?(@item)
+                - if current_user.already_favorited?(@item)
                   = link_to item_favorite_path(@item), method: :delete, remote: true, class: "likeBtn" do
                     = icon('fas fa-star fa-xs', class: 'starIcon')
                     お気に入り #{@item.favorites.count}
