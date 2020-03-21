@@ -76,7 +76,7 @@
                     = icon('fas fa-star fa-xs', class: 'starIcon')
                     お気に入り #{@item.favorites.count}
                 -else 
-                  = link_to item_favorites_path(@item),method: :post, class: "likeBtn" do
+                  = link_to item_favorites_path(@item),method: :post, remote: true, class: "likeBtn" do
                     = icon('fas fa-star fa-xs', class: 'starIcon')
                     お気に入り #{@item.favorites.count}
             %ul.optional
