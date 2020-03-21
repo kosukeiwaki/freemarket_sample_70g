@@ -1,7 +1,11 @@
 require 'rails_helper'
 
-it "is invalid without a image" do
-  item = build(:item, image: "")
-  item.valid?
-  expect(item.errors[:image]).to include('画像を選択してください')
+describe Image do
+  describe '#create' do
+    it "is invalid without a picture" do
+      image = Image.new(id: 1, item_id: 1, picture: "")
+      image.valid?
+      expect(item.errors[:picture]).to include('Images is invalid')
+    end
+  end
 end
