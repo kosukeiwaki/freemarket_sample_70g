@@ -45,13 +45,14 @@
         &__body__sub {
           ul {
             display: flex;
-            justify-content: center;
+            justify-content: left;
             margin-top: 10px;
+            overflow: scroll;
             li {
               margin: 0 10px 0 0;
               img {
                 object-fit: cover;
-                height: 87px;
+                height: 87px;                
                 }
               }
           }
@@ -119,6 +120,9 @@
               font-weight: 400px;
               padding: 15px;
               font-size: 14px;
+              a{
+                color: #3ccace;
+              }
             }
         }
           .optionalArea {
