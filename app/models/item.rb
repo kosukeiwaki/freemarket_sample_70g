@@ -10,7 +10,6 @@ class Item < ApplicationRecord
     belongs_to_active_hash :prefecture
     has_many :images
     accepts_nested_attributes_for :images, allow_destroy: true
-    # validates_associated :images, { message: '画像を選択してください' }
     validates :images, presence: { message: '画像を選択してください' }
     # validates :price, format{
        # with: /\A\z/, message: "300円以上にしてください"

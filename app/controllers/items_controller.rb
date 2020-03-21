@@ -21,12 +21,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.images.new
+    
 
     
     if @item.save
       redirect_to root_path
     else
+      @item.images.new
       render :new
     end
   end

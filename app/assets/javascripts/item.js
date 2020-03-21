@@ -44,9 +44,6 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 
-  $(document).on('click', 'select-test', function(){
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
-  });
-
+ 
 
 });
