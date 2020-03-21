@@ -122,7 +122,7 @@
                       = item.price
                       = "円"
                     %li
-                      %i.fa.fa-star.likeicon 0
+                      %i.fa.fa-star.likeicon #{item.favorites.count}
                   %p (税込)
                   - if item.buyer_id.present?
                     %p2.pickupItem__box__lists__list__body__details__soldout Sold Out

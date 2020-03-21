@@ -71,14 +71,19 @@
           .optionalArea
             %ul
               %li.optionalBtnLikebtn
-                = link_to "#", class: "likeBtn" do
-                  = icon('fas fa-star fa-xs', class: 'starIcon')
-                  %p.textFavorite お気に入り #{@item.favorites.count}
+                - if current_user.already_liked?(@item)
+                  = link_to item_favorite_path(@item), method: :delete, remote: true, class: "likeBtn" do
+                    = icon('fas fa-star fa-xs', class: 'starIcon')
+                    お気に入り #{@item.favorites.count}
+                -else 
+                  = link_to item_favorites_path(@item),method: :post, class: "likeBtn" do
+                    = icon('fas fa-star fa-xs', class: 'starIcon')
+                    お気に入り #{@item.favorites.count}
             %ul.optional
               %li.optionalBtn
                 = link_to "#", class: "reportBtn" do
                   = icon('fa fa-flag fa-xs', class: 'flagIcon')
-                  %p.textReport 不適切な商品の通報
+                  不適切な商品の通報
 
 
         - if user_signed_in? && current_user.id == @item.saler_id
