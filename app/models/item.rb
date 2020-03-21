@@ -10,6 +10,11 @@ class Item < ApplicationRecord
     belongs_to_active_hash :prefecture
     has_many :images, dependent: :destroy
     accepts_nested_attributes_for :images, allow_destroy: true
+    validates :images, presence: { message: '画像を選択してください' }
+    # validates :price, format{
+       # with: /\A\z/, message: "300円以上にしてください"
+    # }
+    validates :price, length: {maximum: 8, message:'9.999.999円以下にしてください'}
 
     enum status:{
       新品、未使用: 0,
