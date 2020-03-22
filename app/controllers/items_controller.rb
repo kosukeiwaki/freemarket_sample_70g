@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
 
     if @item.save
       redirect_to root_path
