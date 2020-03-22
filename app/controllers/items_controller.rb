@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @item.images.new
       render :new
     end
