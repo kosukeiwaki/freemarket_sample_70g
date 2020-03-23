@@ -51,9 +51,6 @@
 
       .detail
         .listing-form-box
-          .listing-select.nowcategory 
-            %p 現在のカテゴリー: #{@item.category.root.name} > #{@item.category.parent.name} > #{@item.category.name}
-            %br
           .listing-product-detail__category
             = f.label 'カテゴリー', class: 'listing-default__label'
             %span.listing-default--require 必須
