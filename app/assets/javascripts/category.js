@@ -45,6 +45,7 @@ document.addEventListener("turbolinks:load", function(){
         })
         .done(function(children){
           $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+          $('.listing-select-wrapper__box--arrow-down').remove();
           $('#grandchildren_wrapper').remove();
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
@@ -59,6 +60,7 @@ document.addEventListener("turbolinks:load", function(){
         })
       }else{
         $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
+        $('.listing-select-wrapper__box--arrow-down').remove();
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
