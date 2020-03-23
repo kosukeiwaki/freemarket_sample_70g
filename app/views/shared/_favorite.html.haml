@@ -1,0 +1,10 @@
+- if current_user.already_favorited?(@item)
+  #likeParentBtn
+    = link_to item_favorite_path(@item.id), method: :delete, remote: true, class: "likeBtn" do
+      = icon('fas fa-star fa-xs', class: 'starIcon')
+      お気に入り #{@item.favorites.count}
+- else 
+  #likeParentBtn
+    = link_to item_favorites_path(@item.id),method: :post, remote: true, class: "likeBtn" do
+      = icon('fas fa-star fa-xs', class: 'starIcon')
+      お気に入り #{@item.favorites.count}

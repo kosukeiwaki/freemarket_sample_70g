@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   def create
     # @item = Item.find(params[:item_id])
-    @favorite = current_user.favorites.create(item_id: params[:item_id])
+    favorite = current_user.favorites.create(item_id: params[:item_id], user_id: current_user.id)
     # if favorite.save
     redirect_back(fallback_location: root_path)
     # else
@@ -10,8 +10,8 @@ class FavoritesController < ApplicationController
 
   def destroy
     # @item = Item.find(params[:item_id])
-    @favorite = Favorite.find_by(item_id: params[:item_id], user_id: current_user.id)
-    @favorite.destroy
+    favorite = Favorite.find_by(item_id: params[:item_id], user_id: current_user.id)
+    favorite.destroy
     redirect_back(fallback_location: root_path)
   end
 

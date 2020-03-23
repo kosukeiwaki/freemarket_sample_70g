@@ -59,7 +59,7 @@
             %tr
               %td.left-lists 配送料の負担
               %td.right-lists
-                #{@item.fee}円
+                #{@item.fee}
             %tr
               %td.left-lists 発送元の地域
               %td.right-lists
@@ -71,14 +71,15 @@
           .optionalArea
             %ul
               %li.optionalBtnLikebtn
-                - if current_user.already_favorited?(@item)
-                  = link_to item_favorite_path(@item), method: :delete, remote: true, class: "likeBtn" do
-                    = icon('fas fa-star fa-xs', class: 'starIcon')
-                    お気に入り #{@item.favorites.count}
-                -else 
-                  = link_to item_favorites_path(@item),method: :post, remote: true, class: "likeBtn" do
-                    = icon('fas fa-star fa-xs', class: 'starIcon')
-                    お気に入り #{@item.favorites.count}
+                = render partial: 'shared/favorite', locals: { favorite: @favorite}
+                -# - if current_user.already_favorited?(@item)
+                -#   = link_to item_favorite_path(@item.id), method: :delete, remote: true, class: "likeBtn" do
+                -#     = icon('fas fa-star fa-xs', class: 'starIcon')
+                -#     お気に入り #{@item.favorites.count}
+                -# -else 
+                -#   = link_to item_favorites_path(@item.id),method: :post, remote: true, class: "likeBtn" do
+                -#     = icon('fas fa-star fa-xs', class: 'starIcon')
+                -#     お気に入り #{@item.favorites.count}
             %ul.optional
               %li.optionalBtn
                 = link_to "#", class: "reportBtn" do

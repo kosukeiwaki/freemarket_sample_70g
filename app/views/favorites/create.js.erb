@@ -1,10 +1,1 @@
-$('#favoriteBtn_<%= @item.id %>').html("<%= j(- if user_signed_in?
-                    - if item/favorited_by?(current_user)
-                      = link_to  item_likes_path(@item.id), method: :delete, remote: true, class: "likeBtn" do
-                    - else 
-                      = link_to  item_likes_path(@item.id), method: :post, remote: true, class: "likeBtn" do
-                  - else 
-                    = @item.favorites.count
-
-                      = icon('fas fa-star fa-xs', class: 'starIcon')
-                      %p.textFavorite お気に入り #{@item.favorites.count}) %>");
+$('#likeParentBtn').html("<%= j(render partial: 'shared/favorite', locals: { favorite: @favorite}) %>")
