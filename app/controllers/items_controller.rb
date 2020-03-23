@@ -41,13 +41,23 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array.unshift(@item.category.root.name)
-    @category_parent_array2 = @item.category.parent.siblings.pluck(:name)
-    @category_parent_array2.unshift(@item.category.parent.name)
-    @category_parent_array3 = @item.category.siblings.pluck(:name)
-    @category_parent_array3.unshift(@item.category.name)
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
 
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
