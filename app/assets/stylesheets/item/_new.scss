@@ -237,9 +237,6 @@ $mainback:#f8f8f8;
     &__name{
       @include mainTop();
     }
-    &__form{
-      padding: 0 10px;
-    }
   }
 }
 
@@ -371,4 +368,10 @@ $mainback:#f8f8f8;
   padding: 20px;
   font-size: 12px;
   font-weight: 200;
+}
+
+
+
+.listing-select-wrapper__box{
+padding: 0 10px;
 }
