@@ -51,14 +51,19 @@
 
       .detail
         .listing-form-box
+          .listing-select.nowcategory 
+            %p 現在のカテゴリー: #{@item.category.root.name} > #{@item.category.parent.name} > #{@item.category.name}
+            %br
           .listing-product-detail__category
             = f.label 'カテゴリー', class: 'listing-default__label'
             %span.listing-default--require 必須
+            
+
             .listing-select-wrapper
               .listing-select-wrapper__box
                 = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
                 %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-          
+
         .bland
           .bland__name
             =f.label :ブランド
