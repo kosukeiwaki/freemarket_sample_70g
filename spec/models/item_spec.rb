@@ -51,5 +51,8 @@ describe Item do
       expect(item.errors[:price]).to include('整数の数字を入力してください')
     end
 
+    
+
+
   end
 end

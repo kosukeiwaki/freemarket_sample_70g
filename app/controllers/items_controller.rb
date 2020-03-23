@@ -29,11 +29,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.region = @item.prefecture.name
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
 
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @item.images.new
       render :new
     end
   end
@@ -41,7 +43,6 @@ class ItemsController < ApplicationController
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -57,11 +58,10 @@ class ItemsController < ApplicationController
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
     end
-
-
   end
 
   def update
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     if @item.update(item_params)
       redirect_to item_path(@item)
     else 

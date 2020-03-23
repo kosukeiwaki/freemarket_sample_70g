@@ -25,6 +25,12 @@ $mainback:#f8f8f8;
   padding: $padding;
 }
 
+.alert{
+  border: 2px solid red;
+  background-color: #FCC;
+  padding: 5px;
+}
+
 // セレクトボックスの初期化
 .select-test {
   -moz-appearance: none;
@@ -79,7 +85,7 @@ $mainback:#f8f8f8;
 
 .submit-test:hover,
 .submit-test:focus {
-  outline: none;
+  outline: 1px #0099FF solid ;
 }
 
 .submit-test::-moz-foucus-inner {
@@ -90,7 +96,7 @@ $mainback:#f8f8f8;
 .text-test:focus {
   border: 1px solid rgba(0, 0, 0, 0.32);
   box-shadow: none;
-  outline: none;
+  outline: 1px #0099FF solid ;
 }
 
 
@@ -105,7 +111,7 @@ $mainback:#f8f8f8;
 }
 
 // ここからテキストエリアの初期化
-.textarea-text {
+.textarea-test {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -185,13 +191,12 @@ $mainback:#f8f8f8;
     padding: 40px;
     margin: 0 auto;
     &__top{
-      padding: 10px;
       display: flex;
       font-weight: bold;
       font-size: 15px;
     }
     &__text{
-      padding: 0 10px;
+      padding: 0 10px 10px;
     }
   }
 }
@@ -213,6 +218,10 @@ $mainback:#f8f8f8;
   }
   &__form{
     padding: 0 10px;
+    width: 100%;
+    textarea{
+      width: 100%;
+    }
   }
 }
 
@@ -228,13 +237,20 @@ $mainback:#f8f8f8;
     &__name{
       @include mainTop();
     }
-    &__form{
-      padding: 0 10px;
-    }
   }
 }
 
 .bland{
+  @include mainBox();
+  &__name{
+    @include mainTop();
+  }
+  &__form{
+    padding: 0 10px;
+  }
+}
+
+.size{
   @include mainBox();
   &__name{
     @include mainTop();
@@ -352,4 +368,10 @@ $mainback:#f8f8f8;
   padding: 20px;
   font-size: 12px;
   font-weight: 200;
+}
+
+
+
+.listing-select-wrapper__box{
+padding: 0 10px;
 }

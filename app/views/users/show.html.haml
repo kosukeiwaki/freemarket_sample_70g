@@ -48,24 +48,25 @@
       .userBox__title
         出品履歴
       .userBox__items
-        .userBox__history__title
-          -# - buyed_items.each do |item| 
-            .itemHeader
-              = item.name
-              .time
-                = recipe.created_at.cstrftime("%Y年%m月%d日")
-            .itemDetail
-              .itemImage
-                = image_tag item.image, size: "300x180" if item.image.present?
-              .itemBox
-                .itemTitle
-                  料理名：
-                  = item.title
-                .itemmemory
-                  思い出：
-                  = item.text             
-                .itemshow
-                  = link_to '詳しく見る', "/items/#{item.id}", method: :get
+        .pickupItem__box__lists
+          - @items.each do |item|
+            = link_to item_path(item.id), method: :get do
+              %figure.pickupItem__box__lists__list
+                .pickupItem__box__lists__list__image
+                  = image_tag item.images[0].picture_url
+                .pickupItem__box__lists__list__body
+                  %h3.pickupItem__box__lists__list__body__name
+                    = item.name
+                  .pickupItem__box__lists__list__body__details
+                    %ul
+                      %li
+                        = item.price
+                        = "円"
+                      %li
+                        %i.fa.fa-star.likeicon 0
+                    %p (税込)
+                    - if item.buyer_id.present?
+                      %p2.pickupItem__box__lists__list__body__details__soldout Sold Out
 
       
 = render "shared/footer"

@@ -6,23 +6,27 @@
 .main2
   .logo
   = image_tag 'material/logo/logo.png', size: "180x70",class:'logo2'
+  
   .itemBox
-    .imageForm
     = form_for @item, url: {action: "create"} do |f|
-      - @item.errors.full_messages.each do |message|
-        = message
-      .imageForm__top
-        =f.label :出品画像 
-        %span.red 必須
-      .imageForm__text
-        %p 最大10枚までアップロードできます。
-      .imageForm__form
-        #image-box
-          = f.fields_for :images do |i|
-            .js-file_group{"data-index" => "#{i.index}"}
-              = i.file_field :picture, class: "js-file"
-              %br
-              .js-remove 削除
+      -if @item.errors.any? 
+        .alert
+          %ul
+            - @item.errors.full_messages.each do |message| 
+              %li= message 
+      .imageForm
+        .imageForm__top
+          =f.label :出品画像 
+          %span.red 必須
+        .imageForm__text
+          %p 最大10枚までアップロードできます。
+        .imageForm__form
+          #image-box
+            = f.fields_for :images do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+                = i.file_field :picture, class: "js-file"
+                %br
+                .js-remove 削除
 
       .name
         .name__top
@@ -39,27 +43,28 @@
           = f.text_area :detail, placeholder: "商品の説明を入力", class: "textarea-test"
 
       .detail
-        .listing-form-box
+        .category
           .listing-product-detail__category
             = f.label 'カテゴリー', class: 'listing-default__label'
             %span.listing-default--require 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "category"}
-                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+                .category__form
+                  = f.select :category_id, @category_parent_array, {}, {class: 'select-test', id: 'parent_category', name: "category"}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .bland
           .bland__name
             =f.label :ブランド
             %span.gray 任意
           .bland__form
-          = f.text_field :brand, placeholder: "ブランドを入力", class: "text-test"
+            = f.text_field :brand, placeholder: "ブランドを入力", class: "text-test"
 
         .size
           .size__name
             =f.label :商品のサイズ
             %span.gray 任意
           .size__form
-          = f.text_field :size, placeholder: "サイズを入力", class: "text-test"
+            = f.text_field :size, placeholder: "サイズを入力", class: "text-test"
 
         .status
           .status__name
@@ -83,7 +88,7 @@
             =f.label :発送元の地域
             %span.red 必須
           .region__form
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'select-test'}
               
         .date
           .date__name
@@ -100,10 +105,11 @@
               %span.red 必須
             .price__box__form
               = f.text_field :price, placeholder: "販売価格を入力", class: "text-test"
-          
+        
       .sure
         = f.submit "出品する", class: 'submit-test redButtom'
-        %button.submit-test.grayButtom{:type => "submit"} 戻る
+        = link_to "戻る", root_path, class: 'submit-test grayButtom'
+
     .warning
       %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "shared/footer"
