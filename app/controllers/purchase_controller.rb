@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
   before_action :set_card
   before_action :set_item
-  before_action :junmp_to_items_show, only: :index
+  before_action :render_to_items_show, only: :index
 
   def index
     if @card.blank?
@@ -38,7 +38,7 @@ private
     @item = Item.find(params[:id])
   end
 
-  def junmp_to_items_show
+  def render_to_items_show
     if current_user.id == @item.saler.id
       render file: "app/views/items/show"
     end

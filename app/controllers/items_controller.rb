@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :render_to_items_show, only: :edit
 
   def index
     @images = Image.all
@@ -95,4 +96,11 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :size, :brand, :detail, :prefecture_id, :category_id,
                                  :status, :fee, :shipping_date, images_attributes: [:picture, :_destroy, :id]).merge(saler_id: current_user.id)
   end
+
+  def render_to_items_show
+    if current_user.id != @item.saler.id
+      render file: "app/views/items/show"
+    end
+  end
+    
 end
