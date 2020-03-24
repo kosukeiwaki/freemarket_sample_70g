@@ -61,7 +61,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    @category_parent_array = []
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_children_array = []
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = []
+    @category_grandchildren_array  = Category.where(ancestry: grandchild_category.ancestry)
     if @item.update(item_params)
       redirect_to item_path(@item)
     else 
