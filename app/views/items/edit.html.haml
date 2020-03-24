@@ -6,12 +6,16 @@
 .main2
   .logo
   = image_tag 'material/logo/logo.png', size: "180x70",class:'logo2'
+
   .itemBox
     .itemBox__title 商品の情報を入力
     .imageForm
     = form_for @item, url: {action: "update"} do |f|
-      - @item.errors.full_messages.each do |message|
-        = message
+      -if @item.errors.any? 
+        .alert
+          %ul
+            - @item.errors.full_messages.each do |message| 
+              %li= message
       .imageForm__top
         =f.label :出品画像 
         %span.red 必須
